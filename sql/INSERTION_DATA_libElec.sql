@@ -1,4 +1,5 @@
-USE librairie
+
+USE libElec
 
 INSERT INTO Client 
 (cliGenre, cliPrenom, cliNom, cliEmail, cliMdp, cliDateAdhesion, cliTelF, cliTelM, cliStatut, cliChampLibre)

@@ -1,0 +1,67 @@
+//Table avec PK uniquement
+
+Statut 
+Client 
+Transporteur 
+FraisDePort 
+Tva 
+Promotion 
+MotCle 
+Editeur
+Theme 
+Ouvrage 
+Auteur 
+
+
+//Table avec PK mais sans relation
+
+Employe
+InfoLibrairie ok
+
+
+
+// FK avec 1 key
+Destinataire <----- cliId (Client)
+SousTheme    <----- theNom (Theme)
+
+
+//FK avec 2 keys 
+Appartenance <----- sousNom (SousTheme)
+Appartenance <----- ouvNom (Ouvrage)
+//
+Avis <----- cliId (Client) 
+Avis <----- staType (Status)
+//
+Ecrire <----- ouvNom (Ouvrage) 
+Ecrire <----- autId (Auteur)
+//
+Recherche <----- mocLibelle (Libelle)
+Recherche <----- isbn (Livre)
+
+
+//FK avec 3 keys
+Adresse <----- desId (Destinataire)
+Adresse <----- cliId (Client)
+Adresse <----- cli_cliId(Client)
+//
+LigneCommande <----- comId (Commande)
+LigneCommande <----- isbn (Livre)
+LigneCommande <----- aviId (Avis)
+
+
+//FK avec 4 keys 
+Livre <----- ediId (Editeur)
+Livre <----- tvaId (Tva)
+Livre <----- proId (Promotion)
+Livre <----- ouvId (Ouvrage)
+
+
+//FK avec 6 keys
+Commande <----- adrId (Adresse)
+Commande <----- traId (Transporteur)
+Commande <----- cliId (Client)
+Commande <----- fraId (FraisPort)
+Commande <----- staType (Statut)
+Commande <----- adr_adrId (Adresse)
+
+

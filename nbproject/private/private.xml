@@ -2,13 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/kakashi/NetBeansProjects/libelec/src/view/UpdateFrame.java</file>
-            <file>file:/home/kakashi/NetBeansProjects/libelec/src/sample/Main.java</file>
-            <file>file:/home/kakashi/NetBeansProjects/libelec/src/controller/MainController.java</file>
-            <file>file:/home/kakashi/NetBeansProjects/libelec/src/controller/UpdateController.java</file>
-            <file>file:/home/kakashi/NetBeansProjects/libelec/src/model/WelcomeModel.java</file>
-            <file>file:/home/kakashi/NetBeansProjects/libelec/src/view/WelcomeFrame.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

@@ -83,6 +83,7 @@ public class WelcomeFrame extends JFrame {
         jPanel1.setBounds(0, 0, 500, 500);
 
         setBounds(0, 0, 510, 530);
+        this.setLocationRelativeTo(null);
     }                        
 
    

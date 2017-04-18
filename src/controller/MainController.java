@@ -31,8 +31,8 @@ public class MainController {
       welcomeFrame.setEnabled(false);
       welcomeFrame.setVisible(false);
       //
-      UpdateFrame updateFrame = new UpdateFrame();
-      UpdateController updateController = new UpdateController(updateFrame);
+      
+      UpdateController updateController = new UpdateController(new UpdateFrame());
       
 
   }

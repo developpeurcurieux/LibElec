@@ -60,7 +60,8 @@ public class UpdateFrame extends JFrame{
         getContentPane().add(jSplitPane1);
         jSplitPane1.setBounds(0, 0, 900, 680);
         
-        setBounds(0, 0, 914, 713);
+        setBounds(0, 0, 800, 900);
+        this.setLocationRelativeTo(null);
     }
     
     private void initGuiLAF() {
@@ -80,14 +81,7 @@ public class UpdateFrame extends JFrame{
         } catch (UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(UpdateFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new UpdateFrame().setVisible(true);
-            }
-        });
+          
     }
     
     public void setController(UpdateController updateController) {

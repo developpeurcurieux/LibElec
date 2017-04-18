@@ -126,3 +126,38 @@ VALUES
 ('promotion'),
 ('evenement'),
 ('ouvrage')
+
+
+-- FK 1 key
+
+INSERT INTO Destinataire
+(cliId, desNom, desPrenom, desEmail, desTel, desStatut)
+VALUES 
+(2, 'LAMBERT', 'Dominique', 'nibh.Quisque@quam.org', '01 04 05 08 07', ''),
+(3, 'PASCAL', 'Olivier', 'volutpat.Nulla@Duisac.co.uk', '01 67 10 78 46', ''),
+(4, 'KABA', 'Abdoulay', 'vulputate.dui@ac.ca', '01 15 22 38 55', ''),
+(5, 'JULES', 'Thierry', 'dolor.Quisque@sollicitudincommodo.com', '01 84 13 99 66', '')
+
+INSERT INTO SousTheme
+(souNom, theNom)
+VALUES
+('aventure', 'Roman'),
+('fantasy', 'Roman'),
+('drame', 'Roman'),
+
+('fiction', 'Policier'),
+('documentaire', 'Policier'),
+
+
+('universel', 'Poesie'),
+('fantaisie', 'Poesie'),
+('amour', 'Poesie')
+
+-- FK 2 keys
+('Britannicus'),
+('Phedre'),
+('La Republique'),
+('Germinal'),
+('Colomba')
+
+INSERT INTO Appartenance

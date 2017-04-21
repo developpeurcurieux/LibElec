@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import model.Adresse;
 
-public class AdresseDB extends BridgeDB{
+public class AdresseDB implements BridgeDB{
     private Adresse adresse;
     private String query = "";
     private PreparedStatement pstmt;

@@ -7,11 +7,11 @@ package util;
 
 
 
-public abstract class BridgeDB {
+public interface BridgeDB {
     
-    public abstract void insert();
+    public void insert();
     
-    public abstract void update();
+    public void update();
     
        
 }

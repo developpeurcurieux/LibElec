@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/cdi213/Documents/LibElec/src/model/LigneCommande.java</file>
-            <file>file:/C:/Users/cdi213/Documents/LibElec/src/model/Commande.java</file>
+            <file>file:/home/testo/LibElec/src/view/NewJFrame.java</file>
+            <file>file:/home/testo/LibElec/src/util/AdresseDB.java</file>
+            <file>file:/home/testo/LibElec/src/util/DBUtil.java</file>
+            <file>file:/home/testo/LibElec/src/util/BridgeDB.java</file>
         </group>
     </open-files>
 </project-private>

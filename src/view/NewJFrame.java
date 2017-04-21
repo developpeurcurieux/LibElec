@@ -31,20 +31,25 @@ public class NewJFrame extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        RootPane = new javax.swing.JPanel();
+        Left = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        Top = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        Bottom = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -73,72 +78,80 @@ public class NewJFrame extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(850, 500));
+        setPreferredSize(new java.awt.Dimension(850, 600));
+        getContentPane().setLayout(null);
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(150, 700));
+        RootPane.setPreferredSize(new java.awt.Dimension(600, 600));
+        RootPane.setLayout(new java.awt.BorderLayout());
+
+        Left.setPreferredSize(new java.awt.Dimension(130, 300));
+        Left.setLayout(new java.awt.GridLayout(13, 0, 5, 2));
+
+        jButton2.setText("Avis");
+        Left.add(jButton2);
+
+        jButton4.setText("Client");
+        Left.add(jButton4);
+
+        jButton5.setText("Commande");
+        Left.add(jButton5);
+
+        jButton6.setText("Livre");
+        Left.add(jButton6);
+
+        jButton7.setText("Theme");
+        Left.add(jButton7);
+
+        jButton8.setText("Auteur");
+        Left.add(jButton8);
+
+        jButton9.setText("Tva");
+        Left.add(jButton9);
+
+        jButton10.setText("Frais de port");
+        Left.add(jButton10);
+
+        jButton11.setText("Transporteur");
+        Left.add(jButton11);
+
+        jButton12.setText("Adresse");
+        Left.add(jButton12);
+
+        jButton14.setText("jButton2");
+        Left.add(jButton14);
+
+        RootPane.add(Left, java.awt.BorderLayout.LINE_START);
+
+        Top.setPreferredSize(new java.awt.Dimension(850, 60));
+        Top.setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("MENU PRINCIPAL");
+        Top.add(jLabel1);
+        jLabel1.setBounds(-1, 5, 750, 40);
+
+        RootPane.add(Top, java.awt.BorderLayout.PAGE_START);
+
+        Bottom.setPreferredSize(new java.awt.Dimension(850, 60));
+        Bottom.setLayout(null);
+
+        jButton1.setText("Quitter");
+        Bottom.add(jButton1);
+        jButton1.setBounds(0, 9, 140, 40);
+
+        RootPane.add(Bottom, java.awt.BorderLayout.PAGE_END);
+
         jPanel1.setLayout(null);
 
-        jButton1.setText("chercher");
-        jPanel1.add(jButton1);
-        jButton1.setBounds(10, 230, 140, 30);
+        jLabel3.setText("jLabel3");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(0, 0, 620, 380);
 
-        jScrollPane4.setViewportView(jTree1);
+        RootPane.add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        jPanel1.add(jScrollPane4);
-        jScrollPane4.setBounds(2, 3, 150, 220);
-
-        getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_START);
-
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable3);
-
-        getContentPane().add(jScrollPane3, java.awt.BorderLayout.CENTER);
-
-        jPanel2.setPreferredSize(new java.awt.Dimension(500, 100));
-        jPanel2.setLayout(null);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(200, 40, 130, 25);
-
-        jTextField1.setText("Nom");
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(370, 40, 130, 23);
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Element a modifier");
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(200, 10, 140, 20);
-
-        jButton2.setText("valider");
-        jPanel2.add(jButton2);
-        jButton2.setBounds(550, 40, 110, 30);
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("User");
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(10, 20, 60, 30);
-
-        getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_START);
-
-        jPanel3.setPreferredSize(new java.awt.Dimension(500, 30));
-        jPanel3.setLayout(null);
-
-        jButton3.setText("Quitter");
-        jPanel3.add(jButton3);
-        jButton3.setBounds(10, 0, 140, 30);
-
-        getContentPane().add(jPanel3, java.awt.BorderLayout.PAGE_END);
+        getContentPane().add(RootPane);
+        RootPane.setBounds(0, 0, 750, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -179,23 +192,28 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Bottom;
+    private javax.swing.JPanel Left;
+    private javax.swing.JPanel RootPane;
+    private javax.swing.JPanel Top;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTree jTree1;
     // End of variables declaration//GEN-END:variables
 }

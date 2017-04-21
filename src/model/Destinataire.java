@@ -80,6 +80,4 @@ public class Destinataire {
         this.desStatut = desStatut;
     }
     
-    
-    
 }

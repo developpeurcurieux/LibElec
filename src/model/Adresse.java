@@ -4,7 +4,7 @@ package model;
 public class Adresse {
     private long adrId;
     private long desId;
-    private long ciId;
+    private long cliId;
     private long cli_cliId;
     private int adrNumVoie;
     private String adrNomVoie;
@@ -18,10 +18,10 @@ public class Adresse {
         
     }
 
-    public Adresse(long adrId, long desId, long ciId, long cli_cliId, int adrNumVoie, String adrNomVoie, String adrNomVoieSuite, String adrCp, String adrVille, String adrPays, int adrStatut) {
+    public Adresse(long adrId, long desId, long cliId, long cli_cliId, int adrNumVoie, String adrNomVoie, String adrNomVoieSuite, String adrCp, String adrVille, String adrPays, int adrStatut) {
         this.adrId = adrId;
         this.desId = desId;
-        this.ciId = ciId;
+        this.cliId = cliId;
         this.cli_cliId = cli_cliId;
         this.adrNumVoie = adrNumVoie;
         this.adrNomVoie = adrNomVoie;
@@ -48,12 +48,12 @@ public class Adresse {
         this.desId = desId;
     }
 
-    public long getCiId() {
-        return ciId;
+    public long getCliId() {
+        return cliId;
     }
 
-    public void setCiId(long ciId) {
-        this.ciId = ciId;
+    public void setCliId(long cliId) {
+        this.cliId = cliId;
     }
 
     public long getCli_cliId() {

@@ -7,9 +7,9 @@ import java.awt.event.ActionEvent;
 
 public class MainController {
   private WelcomeModel welcomeModel;
-  private WelcomeFrame welcomeFrame;
+  private ConnectionFrame welcomeFrame;
   
-  public MainController(WelcomeModel welcomeModel, WelcomeFrame welcomeFrame) {
+  public MainController(WelcomeModel welcomeModel, ConnectionFrame welcomeFrame) {
       this.welcomeModel = welcomeModel;
       this.welcomeFrame = welcomeFrame;
       welcomeFrame.setController(this);
@@ -31,8 +31,13 @@ public class MainController {
       welcomeFrame.setEnabled(false);
       welcomeFrame.setVisible(false);
       //
+
+//getContentPane().removeAll();
+//getContentPane().repaint();
+
+
       
-      UpdateController updateController = new UpdateController(new UpdateFrame());
+      UpdateController updateController = new UpdateController(new BackendMenu());
       
 
   }

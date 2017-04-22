@@ -14,7 +14,7 @@ import controller.*;
 public class Main {
     public static void main(String[] args) {
         WelcomeModel welcomeModel = new WelcomeModel();
-        WelcomeFrame welcomeFrame = new WelcomeFrame();
+        ConnectionFrame welcomeFrame = new ConnectionFrame();
         
         MainController mainController = new MainController(welcomeModel, welcomeFrame);
         

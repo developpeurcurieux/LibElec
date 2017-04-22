@@ -7,7 +7,7 @@ package util;
 
 
 
-public interface BridgeDB {
+public interface DAOInterface {
     
     public void insert();
     

@@ -5,16 +5,16 @@
  */
 package controller;
 
-import view.UpdateFrame;
+import view.BackendMenu;
 /**
  *
  * @author kakashi
  */
 public class UpdateController {
-    private UpdateFrame updateFrame;
+    private BackendMenu updateFrame;
     
     
-    public UpdateController(UpdateFrame updateFrame) {
+    public UpdateController(BackendMenu updateFrame) {
         this.updateFrame = updateFrame;
         updateFrame.setController(this);
         updateFrame.setVisible(true);

@@ -2,8 +2,11 @@
 package view;
 
 import controller.*;
+import java.awt.Color;
 
 import java.awt.Font;
+import java.awt.Dimension;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -64,7 +67,7 @@ public class ConnectionFrame extends JFrame {
 
         rootPane.setLayout(new java.awt.BorderLayout());
 
-        bottom.setPreferredSize(new java.awt.Dimension(500, 70));
+        bottom.setPreferredSize(new java.awt.Dimension(500, 100));
         bottom.setLayout(null);
 
         jButton2.setText("Quitter");
@@ -72,48 +75,69 @@ public class ConnectionFrame extends JFrame {
         jButton2.setBounds(30, 10, 100, 40);
 
         rootPane.add(bottom, java.awt.BorderLayout.PAGE_END);
-
+        top.setPreferredSize(new Dimension(500, 100));
         top.setLayout(new java.awt.GridLayout());
+        
 
         jLabel1.setFont(new java.awt.Font("Droid Sans Mono", 0, 28)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText(" Bienvenue ");
+//        Color lblColor = Color.decode("#838B8B");
+//        Color lblColor = Color.decode("#4EB1BA");
+        jLabel1.setForeground(Color.GRAY);
         top.add(jLabel1);
 
-        rootPane.add(top, java.awt.BorderLayout.PAGE_START);
+        rootPane.add(top, java.awt.BorderLayout.NORTH);
 
         center.setLayout(null);
 
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setToolTipText("login");
         center.add(jTextField2);
-        jTextField2.setBounds(125, 110, 250, 40);
+        jTextField2.setBounds(125, 70, 250, 40);
 
         jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPasswordField1.setToolTipText("password");
+        
+        
+        
         center.add(jPasswordField1);
-        jPasswordField1.setBounds(125, 190, 250, 40);
+        jPasswordField1.setBounds(125, 150, 250, 40);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("User :");
+        Color usrColor = Color.decode("#838B8B");
+        jLabel2.setForeground(usrColor);
+        
+        
+        
         center.add(jLabel2);
-        jLabel2.setBounds(50, 110, 60, 40);
+        jLabel2.setBounds(50, 70, 60, 40);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Password :");
+        Color pswColor = Color.decode("#838B8B");
+        jLabel3.setForeground(pswColor);
+       
+        
+        
         center.add(jLabel3);
-        jLabel3.setBounds(20, 190, 90, 40);
+        jLabel3.setBounds(20, 150, 90, 40);
 
         jButton1.setText("Se connecter");
         center.add(jButton1);
-        jButton1.setBounds(310, 250, 130, 40);
-
+        jButton1.setBounds(310, 220, 130, 40);
+        
+        center.setPreferredSize(new Dimension(500, 300));
+       // center.setForeground(lblColor);
+   
         rootPane.add(center, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(rootPane);
         rootPane.setBounds(0, 0, 500, 500);
 
         pack();
+        //rootPane.setForeground(Color.BLACK);
         this.setBounds(0, 0, 500, 500);
         this.setLocationRelativeTo(null);
     }                        

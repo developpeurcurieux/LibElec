@@ -31,7 +31,6 @@ public class Connect extends javax.swing.JFrame {
         bottom = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         top = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         center = new javax.swing.JPanel();
         jTextField2 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
@@ -53,13 +52,9 @@ public class Connect extends javax.swing.JFrame {
 
         rootPane.add(bottom, java.awt.BorderLayout.PAGE_END);
 
-        top.setLayout(new java.awt.GridLayout());
-
-        jLabel1.setFont(new java.awt.Font("Droid Sans Mono", 0, 28)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText(" Bienvenue ");
-        top.add(jLabel1);
-
+        top.setMinimumSize(new java.awt.Dimension(500, 120));
+        top.setPreferredSize(new java.awt.Dimension(500, 100));
+        top.setLayout(new java.awt.GridLayout(1, 0));
         rootPane.add(top, java.awt.BorderLayout.PAGE_START);
 
         center.setLayout(null);
@@ -137,7 +132,6 @@ public class Connect extends javax.swing.JFrame {
     private javax.swing.JPanel center;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField jPasswordField1;

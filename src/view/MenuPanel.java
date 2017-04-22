@@ -5,7 +5,7 @@
 */
 package view;
 import ztmpview.MenuFrame;
-import controller.UpdateController;
+import controller.MenuController;
 //
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -22,8 +22,8 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 
-public class BackendMenu extends JFrame{
-    private UpdateController updateController;
+public class MenuPanel extends JPanel{
+    private MenuController updateController;
     //
     private JPanel Bottom;
     private JPanel Center;
@@ -52,9 +52,9 @@ public class BackendMenu extends JFrame{
     private JLabel jLabel4;
     
     
-    public BackendMenu() {
+    public MenuPanel() {
         initComponents();
-        initGuiLAF();
+       
     }
 
     
@@ -85,9 +85,6 @@ public class BackendMenu extends JFrame{
         jButton1 = new JButton();
         Center = new JPanel();
         jLabel3 = new JLabel();
-
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         RootPane.setPreferredSize(new Dimension(600, 600));
         RootPane.setLayout(new BorderLayout());
@@ -181,37 +178,14 @@ public class BackendMenu extends JFrame{
 
         RootPane.add(Center, BorderLayout.CENTER);
 
-        getContentPane().add(RootPane);
+       
         RootPane.setBounds(0, 0, 750, 500);
-        pack();
-        this.setBounds(0, 0, 750, 500);
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
+      
                           
-    }
-    
-    public void initGuiLAF() {
-        
-        try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
     }
 
     
-    public void setController(UpdateController updateController) {
+    public void setController(MenuController updateController) {
         this.updateController = updateController;
     }
     

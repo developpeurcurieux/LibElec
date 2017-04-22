@@ -13,10 +13,10 @@ import controller.*;
  */
 public class Main {
     public static void main(String[] args) {
-        WelcomeModel welcomeModel = new WelcomeModel();
-        ConnectionFrame welcomeFrame = new ConnectionFrame();
+        ConnectionModel connectionModel = new ConnectionModel();
+        RootFrame rootFrame = new RootFrame();
         
-        MainController mainController = new MainController(welcomeModel, welcomeFrame);
+        ConnectionController mainController = new ConnectionController(connectionModel, rootFrame);
         
         
     }

@@ -1,9 +1,15 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package view;
 
-import controller.*;
+import controller.Controller;
 import java.awt.Color;
+import java.awt.Dimension;
 
+        
 import java.awt.Font;
 import java.awt.Dimension;
 
@@ -18,12 +24,9 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 
-
-
-
-public class ConnectionFrame extends JFrame {
-   
-    private MainController mainController;
+ 
+public class ConnectionPanel extends JPanel {
+    private Controller controller;
     //
     private javax.swing.JPanel bottom;
     private javax.swing.JPanel center;
@@ -38,8 +41,8 @@ public class ConnectionFrame extends JFrame {
     private javax.swing.JPanel top;
     
     
-    public ConnectionFrame() {
-        initGuiLAF();
+    public ConnectionPanel() {
+        
         initComponents();
        
     }
@@ -62,9 +65,6 @@ public class ConnectionFrame extends JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
-
         rootPane.setLayout(new java.awt.BorderLayout());
 
         bottom.setPreferredSize(new java.awt.Dimension(500, 100));
@@ -82,9 +82,9 @@ public class ConnectionFrame extends JFrame {
         jLabel1.setFont(new java.awt.Font("Droid Sans Mono", 0, 28)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText(" Bienvenue ");
-//        Color lblColor = Color.decode("#838B8B");
-//        Color lblColor = Color.decode("#4EB1BA");
-        jLabel1.setForeground(Color.GRAY);
+//       Color lblColor = Color.decode("#838B8B");
+        Color lblColor = Color.decode("#4EB1BA");
+        jLabel1.setForeground(lblColor);
         top.add(jLabel1);
 
         rootPane.add(top, java.awt.BorderLayout.NORTH);
@@ -133,41 +133,10 @@ public class ConnectionFrame extends JFrame {
    
         rootPane.add(center, java.awt.BorderLayout.CENTER);
 
-        getContentPane().add(rootPane);
+       
         rootPane.setBounds(0, 0, 500, 500);
 
-        pack();
-        //rootPane.setForeground(Color.BLACK);
-        this.setBounds(0, 0, 500, 500);
-        this.setLocationRelativeTo(null);
-    }                        
-
-   
-    public void initGuiLAF() {
-        try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConnectionFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConnectionFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConnectionFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConnectionFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
         
-    }
-    
-    public void setController(MainController mainController) {
-        this.mainController = mainController;
-    }
-    
-    
-   
-   
+}
+
 }

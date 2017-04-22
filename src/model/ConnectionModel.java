@@ -9,6 +9,6 @@ package model;
  *
  * @author testo
  */
-public class WelcomeModel {
+public class ConnectionModel {
     
 }

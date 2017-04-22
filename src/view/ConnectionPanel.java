@@ -47,12 +47,7 @@ public class ConnectionPanel extends JPanel {
        
     }
      
-    private void initComponents() {
-
-      
-        
-        
-        
+    private void initComponents() {      
         rootPane = new javax.swing.JPanel();
         bottom = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();

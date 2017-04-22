@@ -16,7 +16,7 @@ public class Main {
         ConnectionModel connectionModel = new ConnectionModel();
         RootFrame rootFrame = new RootFrame();
         
-        ConnectionController mainController = new ConnectionController(connectionModel, rootFrame);
+        ConnectionController connectionController = new ConnectionController(connectionModel, rootFrame);
         
         
     }

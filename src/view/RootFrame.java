@@ -2,18 +2,9 @@
     package view;
 
     import controller.*;
-    import java.awt.Color;
-
-    import java.awt.Font;
-    import java.awt.Dimension;
-
-    import javax.swing.JButton;
+   
     import javax.swing.JFrame;
-    import javax.swing.JLabel;
-    import javax.swing.JPanel;
-    import javax.swing.JPasswordField;
-    import javax.swing.JTextField;
-    import javax.swing.SwingConstants;
+    
     import javax.swing.UIManager;
     import javax.swing.UnsupportedLookAndFeelException;
     import javax.swing.WindowConstants;
@@ -36,9 +27,9 @@
         }
 
         public void initFrame() {
-            this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+            this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.getContentPane().setLayout(null);
-        
+        this.getContentPane().add(new ConnectionPanel());
         
 //        this.getContentPane().add(new ConnectionPanel());
 //            rootPane.setBounds(0, 0, 500, 500);
@@ -46,7 +37,8 @@ pack();
             //rootPane.setForeground(Color.BLACK);
             this.setBounds(0, 0, 500, 500);
             this.setLocationRelativeTo(null);
-            this.getContentPane().add(new ConnectionPanel());
+            this.setResizable(false);
+           
         }                        
 
 

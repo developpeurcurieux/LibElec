@@ -36,13 +36,17 @@
         }
 
         public void initFrame() {
-            connectionPanel = new ConnectionPanel();
-            this.getContentPane().add(connectionPanel);
+            this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        this.getContentPane().setLayout(null);
+        
+        
+//        this.getContentPane().add(new ConnectionPanel());
 //            rootPane.setBounds(0, 0, 500, 500);
-
+pack();
             //rootPane.setForeground(Color.BLACK);
             this.setBounds(0, 0, 500, 500);
             this.setLocationRelativeTo(null);
+            this.getContentPane().add(new ConnectionPanel());
         }                        
 
 

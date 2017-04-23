@@ -170,7 +170,7 @@ public class MenuPanel extends JPanel{
 
         Center.setLayout(null);
 
-        jLabel3.setIcon(new ImageIcon("/home/kakashi/LibElec/res/backendMenu.jpg"));
+        jLabel3.setIcon(new ImageIcon(this.getClass().getResource("/resources/backendMenu.jpg")));
         Center.add(jLabel3);
         jLabel3.setBounds(30, 0, 430, 350);
 

@@ -4,8 +4,10 @@ package view;
 import controller.*;
 import java.awt.CardLayout;
 import java.awt.BorderLayout;
+import java.awt.Image;
 import java.util.HashSet;
 import java.util.Set;
+import javax.swing.ImageIcon;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -34,6 +36,7 @@ public class RootFrame extends JFrame {
     public void initialize() {
         
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setIconImage(new ImageIcon(getClass().getResource("/resources/libIcon_32.png")).getImage());
         this.getContentPane().setLayout(new BorderLayout());
         
         cards = new CardLayout();

@@ -16,6 +16,7 @@ import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -32,8 +33,8 @@ public class ConnectionPanel extends JPanel {
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JLabel jLabel3;
-    private JPasswordField jPasswordField1;
-    private JTextField jTextField2;
+    private JPasswordField passField;
+    private JTextField tfLogin;
     private JPanel top;
     
     
@@ -51,8 +52,8 @@ public class ConnectionPanel extends JPanel {
         top = new JPanel();
         jLabel1 = new JLabel();
         center = new JPanel();
-        jTextField2 = new JTextField();
-        jPasswordField1 = new JPasswordField();
+        tfLogin = new JTextField();
+        passField = new JPasswordField();
         jLabel2 = new JLabel();
         jLabel3 = new JLabel();
         jButton1 = new JButton();
@@ -85,18 +86,22 @@ public class ConnectionPanel extends JPanel {
         
         center.setLayout(null);
         
-        jTextField2.setHorizontalAlignment(JTextField.CENTER);
-        jTextField2.setToolTipText("login");
-        center.add(jTextField2);
-        jTextField2.setBounds(125, 70, 250, 40);
-        
-        jPasswordField1.setHorizontalAlignment(JTextField.CENTER);
-        jPasswordField1.setToolTipText("password");
+        tfLogin.setHorizontalAlignment(JTextField.CENTER);
+        tfLogin.setToolTipText("login");
         
         
+        center.add(tfLogin);
+        tfLogin.setBounds(125, 70, 250, 40);
         
-        center.add(jPasswordField1);
-        jPasswordField1.setBounds(125, 150, 250, 40);
+        passField.setHorizontalAlignment(JTextField.CENTER);
+        passField.setToolTipText("password");
+        
+        
+        
+        
+        
+        center.add(passField);
+        passField.setBounds(125, 150, 250, 40);
         
         jLabel2.setHorizontalAlignment(SwingConstants.CENTER);
         jLabel2.setText("User :");
@@ -138,7 +143,15 @@ public class ConnectionPanel extends JPanel {
     }
         
     public void seConnecter() {
-        controller.updateFrame();
+        String motPasse = new String(passField.getPassword());
+        
+        if( (tfLogin.getText().matches("^[a][d][m][i][n]$")) && (motPasse.matches("^[a][d][m][i][n]$")) ) {
+                 controller.updateFrame();
+        }        
+        else {
+                JOptionPane.showMessageDialog(this, "Connection impossible. \nLogin ou mot de passe incorrect", "Error", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
     }
     
     public void quitter() {

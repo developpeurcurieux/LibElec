@@ -3,7 +3,7 @@ package util;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import model.Adresse;
+import model.db.tables.Adresse;
 
 public class AdresseDB implements DAOInterface{
     private Adresse adresse;

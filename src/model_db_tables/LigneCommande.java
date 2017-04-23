@@ -1,4 +1,4 @@
-package model.db.tables;
+package model_db_tables;
 
 
 public class LigneCommande {

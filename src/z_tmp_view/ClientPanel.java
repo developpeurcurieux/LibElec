@@ -28,63 +28,167 @@ public class ClientPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        bottom = new javax.swing.JPanel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jTextField3 = new javax.swing.JTextField();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
+        left = new javax.swing.JPanel();
+        right = new javax.swing.JPanel();
+        top = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        center = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
+        setPreferredSize(new java.awt.Dimension(827, 600));
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setLayout(null);
+        bottom.setPreferredSize(new java.awt.Dimension(700, 140));
+        bottom.setLayout(null);
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Id Client : ");
-        jPanel1.add(jRadioButton1);
-        jRadioButton1.setBounds(30, 20, 103, 28);
+        jRadioButton1.setText("Id Client");
+        bottom.add(jRadioButton1);
+        jRadioButton1.setBounds(80, 20, 100, 28);
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Nom : ");
-        jPanel1.add(jRadioButton2);
-        jRadioButton2.setBounds(30, 60, 76, 28);
+        jRadioButton2.setText("Prenom");
+        bottom.add(jRadioButton2);
+        jRadioButton2.setBounds(380, 60, 100, 28);
 
-        jTextField1.setText("jTextField1");
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(150, 20, 160, 30);
+        jRadioButton3.setText("Nom");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
+        bottom.add(jRadioButton3);
+        jRadioButton3.setBounds(80, 60, 63, 28);
+        bottom.add(jTextField1);
+        jTextField1.setBounds(490, 60, 150, 30);
+        bottom.add(jTextField2);
+        jTextField2.setBounds(190, 60, 150, 30);
 
-        jTextField2.setText("jTextField2");
-        jPanel1.add(jTextField2);
-        jTextField2.setBounds(150, 60, 160, 30);
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+        bottom.add(jTextField3);
+        jTextField3.setBounds(190, 20, 150, 30);
 
         jButton1.setText("chercher");
-        jPanel1.add(jButton1);
-        jButton1.setBounds(670, 50, 110, 50);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        bottom.add(jButton1);
+        jButton1.setBounds(680, 80, 110, 40);
 
-        jTextField3.setText("jTextField2");
-        jPanel1.add(jTextField3);
-        jTextField3.setBounds(450, 60, 160, 30);
+        add(bottom, java.awt.BorderLayout.PAGE_END);
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("Prenom : ");
-        jPanel1.add(jRadioButton3);
-        jRadioButton3.setBounds(330, 60, 99, 28);
+        left.setPreferredSize(new java.awt.Dimension(90, 100));
+        add(left, java.awt.BorderLayout.LINE_START);
 
-        add(jPanel1, java.awt.BorderLayout.CENTER);
+        right.setPreferredSize(new java.awt.Dimension(90, 100));
+        add(right, java.awt.BorderLayout.LINE_END);
+
+        top.setPreferredSize(new java.awt.Dimension(100, 80));
+        top.setLayout(new java.awt.GridLayout());
+
+        jLabel1.setFont(new java.awt.Font("Droid Sans Mono", 0, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Client");
+        top.add(jLabel1);
+
+        add(top, java.awt.BorderLayout.PAGE_START);
+
+        center.setPreferredSize(new java.awt.Dimension(500, 400));
+        center.setLayout(new java.awt.GridLayout());
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Id Client", "Nom", "Prenom", "Adresse"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        center.add(jScrollPane1);
+
+        add(center, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel bottom;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JPanel center;
     private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JPanel left;
+    private javax.swing.JPanel right;
+    private javax.swing.JPanel top;
     // End of variables declaration//GEN-END:variables
 }

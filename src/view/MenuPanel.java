@@ -169,8 +169,9 @@ public class MenuPanel extends JPanel{
         this.add(Bottom, BorderLayout.PAGE_END);
 
         Center.setLayout(null);
-
-        jLabel3.setIcon(new ImageIcon(this.getClass().getResource("/resources/backendMenu.jpg")));
+        ImageIcon iconMenu = new ImageIcon(this.getClass().getResource("/resources/backendMenu.jpg"));
+        //TODO il faut modifier le size de limage dacceuil
+        jLabel3.setIcon(iconMenu);
         Center.add(jLabel3);
         jLabel3.setBounds(30, 0, 430, 350);
 

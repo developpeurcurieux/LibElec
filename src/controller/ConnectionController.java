@@ -8,11 +8,15 @@ import java.awt.event.ActionEvent;
 public class ConnectionController implements Controller {
   private ConnectionModel connectionModel;
   private RootFrame rootFrame;
+  private ConnectionPanel connectionPanel;
   
   public ConnectionController(ConnectionModel connectionModel, RootFrame rootFrame) {
       this.connectionModel = connectionModel;
       this.rootFrame = rootFrame;
-      rootFrame.setController(this);
+      connectionPanel = new ConnectionPanel();
+      connectionPanel.setController(this);
+      
+      rootFrame.addCard(connectionPanel, "connection");
       rootFrame.setVisible(true);
   }
   
@@ -26,10 +30,7 @@ public class ConnectionController implements Controller {
 
   @Override
   public void updateFrame() {
-//      rootFrame.setEnabled(false);
-      //getContentPane().removeAll();
-//getContentPane().repaint();
-
+     
       MenuController menuController = new MenuController(rootFrame);
       
 

@@ -4,7 +4,7 @@
 * and open the template in the editor.
 */
 package view;
-import ztmpview.MenuFrame;
+
 import controller.MenuController;
 //
 import java.awt.BorderLayout;
@@ -14,30 +14,27 @@ import java.awt.GridLayout;
 //
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.WindowConstants;
+
 
 public class MenuPanel extends JPanel{
-    private MenuController updateController;
+    private MenuController menuController;
     //
     private JPanel Bottom;
     private JPanel Center;
     private JPanel Left;
     private JPanel Right;
-    private JPanel RootPane;
+    
     private JPanel Top;
-    private JButton jButton1;
-    private JButton jButton10;
-    private JButton jButton11;
-    private JButton jButton12;
-    private JButton jButton13;
-    private JButton jButton14;
-    private JButton jButton15;
+    private JButton btnQuit;
+    private JButton btnQuit0;
+    private JButton btnQuit1;
+    private JButton btnQuit2;
+    private JButton btnQuit3;
+    private JButton btnQuit4;
+    private JButton btnQuit5;
     private JButton jButton2;
     private JButton jButton3;
     private JButton jButton4;
@@ -60,15 +57,15 @@ public class MenuPanel extends JPanel{
     
     private void initComponents() {
 
-        RootPane = new JPanel();
+        
         Right = new JPanel();
         jLabel2 = new JLabel();
         jButton6 = new JButton();
         jButton8 = new JButton();
         jButton7 = new JButton();
-        jButton14 = new JButton();
-        jButton15 = new JButton();
-        jButton13 = new JButton();
+        btnQuit4 = new JButton();
+        btnQuit5 = new JButton();
+        btnQuit3 = new JButton();
         jButton9 = new JButton();
         Left = new JPanel();
         jLabel4 = new JLabel();
@@ -76,18 +73,18 @@ public class MenuPanel extends JPanel{
         jButton3 = new JButton();
         jButton5 = new JButton();
         jButton4 = new JButton();
-        jButton10 = new JButton();
-        jButton11 = new JButton();
-        jButton12 = new JButton();
+        btnQuit0 = new JButton();
+        btnQuit1 = new JButton();
+        btnQuit2 = new JButton();
         Top = new JPanel();
         jLabel1 = new JLabel();
         Bottom = new JPanel();
-        jButton1 = new JButton();
+        btnQuit = new JButton();
         Center = new JPanel();
         jLabel3 = new JLabel();
 
-        RootPane.setPreferredSize(new Dimension(600, 600));
-        RootPane.setLayout(new BorderLayout());
+        this.setPreferredSize(new Dimension(600, 600));
+        this.setLayout(new BorderLayout());
 
         Right.setPreferredSize(new Dimension(130, 300));
         Right.setLayout(new GridLayout(10, 0));
@@ -105,19 +102,19 @@ public class MenuPanel extends JPanel{
         jButton7.setText("Theme");
         Right.add(jButton7);
 
-        jButton14.setText("Editeur");
-        Right.add(jButton14);
+        btnQuit4.setText("Editeur");
+        Right.add(btnQuit4);
 
-        jButton15.setText("Mot-cles");
-        Right.add(jButton15);
+        btnQuit5.setText("Mot-cles");
+        Right.add(btnQuit5);
 
-        jButton13.setText("Employe");
-        Right.add(jButton13);
+        btnQuit3.setText("Employe");
+        Right.add(btnQuit3);
 
         jButton9.setText("Tva");
         Right.add(jButton9);
 
-        RootPane.add(Right, BorderLayout.LINE_END);
+        this.add(Right, BorderLayout.LINE_END);
 
         Left.setPreferredSize(new Dimension(130, 300));
         Left.setLayout(new GridLayout(10, 0, 5, 0));
@@ -140,16 +137,16 @@ public class MenuPanel extends JPanel{
         jButton4.setText("Client");
         Left.add(jButton4);
 
-        jButton10.setText("Frais de port");
-        Left.add(jButton10);
+        btnQuit0.setText("Frais de port");
+        Left.add(btnQuit0);
 
-        jButton11.setText("Transporteur");
-        Left.add(jButton11);
+        btnQuit1.setText("Transporteur");
+        Left.add(btnQuit1);
 
-        jButton12.setText("Adresse");
-        Left.add(jButton12);
+        btnQuit2.setText("Adresse");
+        Left.add(btnQuit2);
 
-        RootPane.add(Left, BorderLayout.LINE_START);
+        this.add(Left, BorderLayout.LINE_START);
 
         Top.setPreferredSize(new Dimension(850, 60));
         Top.setLayout(null);
@@ -160,15 +157,16 @@ public class MenuPanel extends JPanel{
         Top.add(jLabel1);
         jLabel1.setBounds(-1, 5, 750, 40);
 
-        RootPane.add(Top, BorderLayout.PAGE_START);
+        this.add(Top, BorderLayout.PAGE_START);
 
-        Bottom.setPreferredSize(new Dimension(850, 60));
+        Bottom.setPreferredSize(new Dimension(850, 40));
         Bottom.setLayout(new GridLayout());
 
-        jButton1.setText("Quitter");
-        Bottom.add(jButton1);
+        btnQuit.setText("Quitter");
+        btnQuit.addActionListener(e -> quitter());
+        Bottom.add(btnQuit);
 
-        RootPane.add(Bottom, BorderLayout.PAGE_END);
+        this.add(Bottom, BorderLayout.PAGE_END);
 
         Center.setLayout(null);
 
@@ -176,17 +174,20 @@ public class MenuPanel extends JPanel{
         Center.add(jLabel3);
         jLabel3.setBounds(30, 0, 430, 350);
 
-        RootPane.add(Center, BorderLayout.CENTER);
+        this.add(Center, BorderLayout.CENTER);
 
        
-        RootPane.setBounds(0, 0, 750, 500);
+        this.setBounds(0, 0, 750, 500);
       
                           
     }
 
     
-    public void setController(MenuController updateController) {
-        this.updateController = updateController;
+    public void setController(MenuController menuController) {
+        this.menuController = menuController;
     }
     
+    public void quitter() {
+        menuController.quitFrame();
+    }
 }

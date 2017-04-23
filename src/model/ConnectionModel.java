@@ -10,5 +10,7 @@ package model;
  * @author testo
  */
 public class ConnectionModel {
-    
+    public ConnectionModel() {
+        
+    }
 }

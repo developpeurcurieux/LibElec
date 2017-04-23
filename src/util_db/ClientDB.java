@@ -1,28 +1,40 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package util_db;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import model_db_tables.Adresse;
+import model_db_tables.*;
 
-public class AdresseDB implements DAOInterface{
+public class ClientDB implements DAOInterface{
     private Adresse adresse;
+    private Client client;
     private String query = "";
     private PreparedStatement pstmt;
     
 
     
-    public AdresseDB(Adresse adresse) {
-     this.adresse = adresse;
+    public ClientDB(Client client) {
+     this.client = client;
     }
     
     @Override
     public void insert() {
         try {
-            query = "INSERT INTO Adresse "
-                    + "(desId,cliId,cli_cliId,adrNumVoie,adrNomVoie,adrNomVoieSuite,adrCp,adrVille,adrPays,adrStatut) "
+            query = "INSERT INTO Client "
+                    + "(cliGenre, cliPrenom, cliNom, cliEmail, cliMdp, cliDateAdhesion, cliTelF, cliTelM, cliStatut, cliChampLibre)"
                     + "VALUES"
                     + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+//"VALUES \n" +
+//"(0, 'Joseph', 'LACOURT', 'dui@malesuadavelconvallis.edu', 'ninja01', '2016-12-17', '01 97 86 51 83', '06 80 26 43 87', '', ''),\n" +
+//"(0, 'Georges','HENRY', 'sodales.Mauris.blandit@malesuada.org', 'ninja02', '2016-07-17', '01 70 59 40 51', '', '', ''),\n" +
+//"(1, 'Veronique','GURY', 'consequat.purus@quamvel.org', 'ninja03', '2015-05-24', '', '06 58 28 23 52', '', ''),		\n" +
+//"(0, 'Laurence','DY', 'in@egetipsumSuspendisse.co.uk', 'ninja04', '2017-01-31', '01 92 84 07 41', '06 35 77 49 33', '', '')
+                    
             
             pstmt = DBUtil.connexion.prepareStatement(query);
             

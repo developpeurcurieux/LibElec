@@ -51,22 +51,22 @@ public class ClientPanel extends javax.swing.JPanel {
         bottom.setPreferredSize(new java.awt.Dimension(700, 140));
         bottom.setLayout(null);
 
-        jRadioButton1.setText("Id Client");
+        jRadioButton1.setText("choix");
         bottom.add(jRadioButton1);
         jRadioButton1.setBounds(80, 20, 100, 28);
 
-        jRadioButton2.setText("Prenom");
+        jRadioButton2.setText("choix");
         bottom.add(jRadioButton2);
         jRadioButton2.setBounds(380, 60, 100, 28);
 
-        jRadioButton3.setText("Nom");
+        jRadioButton3.setText("choix 2");
         jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton3ActionPerformed(evt);
             }
         });
         bottom.add(jRadioButton3);
-        jRadioButton3.setBounds(80, 60, 63, 28);
+        jRadioButton3.setBounds(80, 60, 80, 28);
         bottom.add(jTextField1);
         jTextField1.setBounds(490, 60, 150, 30);
         bottom.add(jTextField2);
@@ -98,17 +98,17 @@ public class ClientPanel extends javax.swing.JPanel {
         add(right, java.awt.BorderLayout.LINE_END);
 
         top.setPreferredSize(new java.awt.Dimension(100, 80));
-        top.setLayout(new java.awt.GridLayout());
+        top.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel1.setFont(new java.awt.Font("Droid Sans Mono", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Client");
+        jLabel1.setText("label");
         top.add(jLabel1);
 
         add(top, java.awt.BorderLayout.PAGE_START);
 
         center.setPreferredSize(new java.awt.Dimension(500, 400));
-        center.setLayout(new java.awt.GridLayout());
+        center.setLayout(new java.awt.GridLayout(1, 0));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

@@ -145,12 +145,14 @@ public class ConnectionPanel extends JPanel {
     public void seConnecter() {
         String motPasse = new String(passField.getPassword());
         
-        if( (tfLogin.getText().matches("^[a][d][m][i][n]$")) && (motPasse.matches("^[a][d][m][i][n]$")) ) {
-                 controller.updateFrame();
-        }        
-        else {
-                JOptionPane.showMessageDialog(this, "Connection impossible. \nLogin ou mot de passe incorrect", "Error", JOptionPane.INFORMATION_MESSAGE);
-        }
+//        if( (tfLogin.getText().matches("^[a][d][m][i][n]$")) && (motPasse.matches("^[a][d][m][i][n]$")) ) {
+//                 controller.updateFrame();
+//        }        
+//        else {
+//                JOptionPane.showMessageDialog(this, "Connection impossible. \nLogin ou mot de passe incorrect", "Error", JOptionPane.INFORMATION_MESSAGE);
+//        }
+        
+        controller.updateFrame();
         
     }
     

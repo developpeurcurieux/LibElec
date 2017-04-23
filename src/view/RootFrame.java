@@ -81,8 +81,8 @@ public class RootFrame extends JFrame {
        
     }
     
-    public void showPanel() {
-        cards.show(cardPanel, "menu principal");
+    public void showPanel(String name) {
+        cards.show(cardPanel, name);
         
     }
     

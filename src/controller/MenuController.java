@@ -31,12 +31,18 @@ public class MenuController implements Controller{
         menuPanel.setController(this);
         
         rootFrame.addCard(menuPanel, "menu principal");
-        rootFrame.showPanel();
+        rootFrame.showPanel("menu principal");
         rootFrame.setBounds(0, 0, 750, 500);
         rootFrame.setLocationRelativeTo(null);
         rootFrame.setResizable(false);
         rootFrame.setVisible(true);
     }
+    
+    public void consulterClient() {
+        ClientController clientController = new ClientController(rootFrame);
+    }
+    
+    
     
     @Override
     public void quitFrame() {

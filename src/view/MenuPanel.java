@@ -11,6 +11,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
 //
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -26,7 +27,6 @@ public class MenuPanel extends JPanel{
     private JPanel Center;
     private JPanel Left;
     private JPanel Right;
-    
     private JPanel Top;
     private JButton btnQuit;
     private JButton btnQuit0;
@@ -37,7 +37,7 @@ public class MenuPanel extends JPanel{
     private JButton btnQuit5;
     private JButton jButton2;
     private JButton jButton3;
-    private JButton jButton4;
+    private JButton btnClient;
     private JButton jButton5;
     private JButton jButton6;
     private JButton jButton7;
@@ -72,7 +72,7 @@ public class MenuPanel extends JPanel{
         jButton2 = new JButton();
         jButton3 = new JButton();
         jButton5 = new JButton();
-        jButton4 = new JButton();
+        btnClient = new JButton();
         btnQuit0 = new JButton();
         btnQuit1 = new JButton();
         btnQuit2 = new JButton();
@@ -133,10 +133,13 @@ public class MenuPanel extends JPanel{
 
         jButton5.setText("Commande");
         Left.add(jButton5);
+        
+        
 
-        jButton4.setText("Client");
-        Left.add(jButton4);
-
+        btnClient.setText("Client");
+        Left.add(btnClient);
+        btnClient.addActionListener(e -> consulterClient());
+        
         btnQuit0.setText("Frais de port");
         Left.add(btnQuit0);
 
@@ -170,11 +173,12 @@ public class MenuPanel extends JPanel{
 
         Center.setLayout(null);
         ImageIcon iconMenu = new ImageIcon(this.getClass().getResource("/resources/backendMenu.jpg"));
+        jLabel3.setBounds(20, 0, 450, 350);
+        iconMenu.getImage().getScaledInstance(jLabel3.getWidth(), jLabel3.getHeight(), Image.SCALE_DEFAULT);
         //TODO il faut modifier le size de limage dacceuil
         jLabel3.setIcon(iconMenu);
         Center.add(jLabel3);
-        jLabel3.setBounds(30, 0, 430, 350);
-
+        
         this.add(Center, BorderLayout.CENTER);
 
        
@@ -190,5 +194,9 @@ public class MenuPanel extends JPanel{
     
     public void quitter() {
         menuController.quitFrame();
+    }
+    
+    public void consulterClient() {
+        menuController.consulterClient();
     }
 }

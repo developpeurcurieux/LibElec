@@ -98,7 +98,7 @@ public class ClientDB implements DAOInterface{
     }
     
     public Vector loadClientOfDB() {
-        Vector <Client> listeClients = new Vector();
+        Vector listeClients = new Vector();
         ResultSet rs;
         
         try {
@@ -123,9 +123,13 @@ public class ClientDB implements DAOInterface{
             rs = stmt.executeQuery(query);
             while(rs.next()) {
                 client = new Client();
+                Vector v = new Vector();
+                
                 client.setCliId(rs.getLong("cliId"));
                 client.setCliGenre(rs.getInt("cliGenre"));
-                client.setCliEmail(rs.getString("cliEMail"));
+                client.setCliPrenom(rs.getString("cliPrenom"));
+                client.setCliNom(rs.getString("cliNom"));
+                client.setCliEmail(rs.getString("cliEmail"));
                 client.setCliMdp(rs.getString("cliMdp"));
                 client.setCliDateAdhesion(rs.getString("cliDateAdhesion"));
                 client.setCliTelF(rs.getString("cliTelF"));
@@ -133,8 +137,21 @@ public class ClientDB implements DAOInterface{
                 client.setCliStatut(rs.getInt("cliStatut"));
                 client.setCliChampLibre(rs.getString("cliChampLibre"));
                 
+                v.add(client.getCliId());
+                v.add(client.getCliGenre());
+                v.add(client.getCliPrenom());
+                v.add(client.getCliNom());
+                v.add(client.getCliEmail());
+                v.add(client.getCliMdp());
+                v.add(client.getCliDateAdhesion());
+                v.add(client.getCliTelF());
+                v.add(client.getCliTelM());
+                v.add(client.getCliStatut());
+                v.add(client.getCliChampLibre());
+                
                 System.out.println("client :" + client);
-                listeClients.add(client);
+                              
+                listeClients.add(v);
             }
             
             

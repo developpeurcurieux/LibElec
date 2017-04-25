@@ -10,7 +10,7 @@ public class Client {
     private String cliNom;
     private String cliEmail;
     private String cliMdp;
-    private LocalDate cliDateAdhesion;
+    private String cliDateAdhesion;
     private String cliTelF;
     private String cliTelM;
     private int cliStatut;
@@ -20,7 +20,7 @@ public class Client {
         
     }
 
-    public Client(long cliId, int cliGenre, String cliPrenom, String cliNom, String cliEmail, String cliMdp, LocalDate cliDateAdhesion, String cliTelF, String cliTelM, int cliStatut, String cliChampLibre) {
+    public Client(long cliId, int cliGenre, String cliPrenom, String cliNom, String cliEmail, String cliMdp, String cliDateAdhesion, String cliTelF, String cliTelM, int cliStatut, String cliChampLibre) {
         this.cliId = cliId;
         this.cliGenre = cliGenre;
         this.cliPrenom = cliPrenom;
@@ -82,11 +82,11 @@ public class Client {
         this.cliMdp = cliMdp;
     }
 
-    public LocalDate getCliDateAdhesion() {
+    public String getCliDateAdhesion() {
         return cliDateAdhesion;
     }
 
-    public void setCliDateAdhesion(LocalDate cliDateAdhesion) {
+    public void setCliDateAdhesion(String cliDateAdhesion) {
         this.cliDateAdhesion = cliDateAdhesion;
     }
 
@@ -123,6 +123,15 @@ public class Client {
     }
 
     
+    @Override
+    public String toString() {
+        String infos = "client "
+                + cliId + "\n"
+        + cliNom + " ";
+        
+        return infos;
+    }
+        
     
-    
+
 }

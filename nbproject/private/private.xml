@@ -5,22 +5,16 @@
             <url>src/view/ClientPanel.java</url>
             <bookmark id="1">
                 <name/>
-                <line>177</line>
+                <line>0</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/testo/LibElec/src/view/ClientPanel.java</file>
-            <file>file:/home/testo/LibElec/src/controller/MenuController.java</file>
-            <file>file:/home/testo/LibElec/src/util_db/DAOInterface.java</file>
-            <file>file:/home/testo/LibElec/src/controller/ClientController.java</file>
-            <file>file:/home/testo/LibElec/src/model_db_tables/Client.java</file>
-            <file>file:/home/testo/LibElec/src/util_db/DBUtil.java</file>
-            <file>file:/home/testo/LibElec/src/view/RootFrame.java</file>
-            <file>file:/home/testo/LibElec/src/util_db/ClientDB.java</file>
-            <file>file:/home/testo/LibElec/src/util_db/AdresseDB.java</file>
+            <file>file:/C:/Users/cdi213/Documents/LibElec/src/util_db/ClientDB.java</file>
+            <file>file:/C:/Users/cdi213/Documents/LibElec/src/view/ClientPanel.java</file>
+            <file>file:/C:/Users/cdi213/Documents/LibElec/src/controller/ClientController.java</file>
         </group>
     </open-files>
 </project-private>

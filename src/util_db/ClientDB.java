@@ -1,25 +1,36 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package util_db;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Vector;
 import model_db_tables.*;
+
 
 public class ClientDB implements DAOInterface{
     private Adresse adresse;
     private Client client;
     private String query = "";
     private PreparedStatement pstmt;
+    private Statement stmt;
+    //
     
-
+    public ClientDB() {
+        //TODO il faut la mettre au debut vers le programme
+        Connexion.toConnect();
+    }
     
     public ClientDB(Client client) {
-     this.client = client;
+        this.client = client;
     }
     
     @Override
@@ -29,14 +40,9 @@ public class ClientDB implements DAOInterface{
                     + "(cliGenre, cliPrenom, cliNom, cliEmail, cliMdp, cliDateAdhesion, cliTelF, cliTelM, cliStatut, cliChampLibre)"
                     + "VALUES"
                     + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-//"VALUES \n" +
-//"(0, 'Joseph', 'LACOURT', 'dui@malesuadavelconvallis.edu', 'ninja01', '2016-12-17', '01 97 86 51 83', '06 80 26 43 87', '', ''),\n" +
-//"(0, 'Georges','HENRY', 'sodales.Mauris.blandit@malesuada.org', 'ninja02', '2016-07-17', '01 70 59 40 51', '', '', ''),\n" +
-//"(1, 'Veronique','GURY', 'consequat.purus@quamvel.org', 'ninja03', '2015-05-24', '', '06 58 28 23 52', '', ''),		\n" +
-//"(0, 'Laurence','DY', 'in@egetipsumSuspendisse.co.uk', 'ninja04', '2017-01-31', '01 92 84 07 41', '06 35 77 49 33', '', '')
-                    
             
-            pstmt = DBUtil.connexion.prepareStatement(query);
+            
+            pstmt = Connexion.connexion.prepareStatement(query);
             
 //            private long adrId;
 //            private long desId;
@@ -50,17 +56,9 @@ public class ClientDB implements DAOInterface{
 //            private String adrPays;
 //            private int adrStatut;
             
-                        
-            pstmt.setLong(1, adresse.getDesId());
-            pstmt.setLong(2, adresse.getCliId());
-            pstmt.setLong(3, adresse.getCli_cliId());
-            pstmt.setInt(4, adresse.getAdrNumVoie());
-            pstmt.setString(5, adresse.getAdrNomVoie());
-            pstmt.setString(6, adresse.getAdrNomVoieSuite());
-            pstmt.setString(7, adresse.getAdrCp());
-            pstmt.setString(8, adresse.getAdrVille());
-            pstmt.setString(9, adresse.getAdrPays());
-            pstmt.setInt(10, adresse.getAdrStatut());
+            
+//
+            
             
             pstmt.executeUpdate();
             
@@ -68,16 +66,16 @@ public class ClientDB implements DAOInterface{
             System.out.println("sql exception of insertion: " + ex.getMessage());
         }
     }
-                        
+    
     // TODO Il ne faut oublier le update AdresseDB (attente pour voir sa mise en place)
     @Override
     public void update() {
-            try {
+        try {
             query = "UPDATE Adresse "
                     + "SET adrNom = 'test', adrCp = '34344' "
                     + "WHERE adrId = " + adresse.getAdrId() + ";";
             
-            pstmt = DBUtil.connexion.prepareStatement(query);
+            pstmt = Connexion.connexion.prepareStatement(query);
             
 //            private long adrId;
 //            private long desId;
@@ -97,5 +95,54 @@ public class ClientDB implements DAOInterface{
         } catch(SQLException ex) {
             System.out.println("sql exception of update: " + ex.getMessage());
         }
+    }
+    
+    public Vector loadClientOfDB() {
+        Vector <Client> listeClients = new Vector();
+        ResultSet rs;
+        
+        try {
+            query = "SELECT * FROM Client;";
+            stmt = Connexion.connexion.createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY
+            );
+            
+            /*      private long cliId;
+            private int cliGenre;
+            private String cliPrenom;
+            private String cliNom;
+            private String cliEmail;
+            private String cliMdp;
+            private LocalDate cliDateAdhesion;
+            private String cliTelF;
+            private String cliTelM;
+            private int cliStatut;
+            //    private String cliChampLibre; */
+            
+            rs = stmt.executeQuery(query);
+            while(rs.next()) {
+                client = new Client();
+                client.setCliId(rs.getLong("cliId"));
+                client.setCliGenre(rs.getInt("cliGenre"));
+                client.setCliEmail(rs.getString("cliEMail"));
+                client.setCliMdp(rs.getString("cliMdp"));
+                client.setCliDateAdhesion(rs.getString("cliDateAdhesion"));
+                client.setCliTelF(rs.getString("cliTelF"));
+                client.setCliTelM(rs.getString("cliTelM"));
+                client.setCliStatut(rs.getInt("cliStatut"));
+                client.setCliChampLibre(rs.getString("cliChampLibre"));
+                
+                System.out.println("client :" + client);
+                listeClients.add(client);
+            }
+            
+            
+            
+        }catch (SQLException ex) {
+            System.out.println(" erreur chargement client" + ex.getMessage());
+        }
+        
+        return listeClients;
     }
 }

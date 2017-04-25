@@ -29,7 +29,7 @@ public class ClientController implements Controller{
       
         rootFrame.setVisible(false);
         
-        clientPanel = new ClientPanel();
+        clientPanel = new ClientPanel("RubriqueClient");
         clientPanel.setController(this);
         
         rootFrame.addCard(clientPanel, "rubrique client");

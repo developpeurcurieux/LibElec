@@ -14,7 +14,7 @@ public class DBUtil {
     private PreparedStatement pstmt;
     private Statement stmt;
     //    
-    static Connection connexion;
+    private Connection connexion;
     
    
     public DBUtil() {
@@ -32,14 +32,14 @@ public class DBUtil {
         
         try{
             url = "jdbc:sqlserver://localhost:1433;"
-                    +"databaseName=maBase;user=sa;password=sa";
+                    +"databaseName=libelec;user=sa;password=sa";
             connexion = DriverManager.getConnection(url);
         }catch(SQLException ex) {
             System.err.println("Oops:Connection  " + ex.getErrorCode() + "/" + ex.getMessage());
         }
     }
     
-    public static void disconnect() {
+    public void disconnect() {
         try {
             connexion.close();
         } catch (SQLException ex) {

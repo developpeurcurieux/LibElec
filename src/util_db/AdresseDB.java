@@ -9,6 +9,7 @@ public class AdresseDB implements DAOInterface{
     private Adresse adresse;
     private String query = "";
     private PreparedStatement pstmt;
+    private Connection connexion;
     
 
     
@@ -24,7 +25,7 @@ public class AdresseDB implements DAOInterface{
                     + "VALUES"
                     + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
             
-            pstmt = DBUtil.connexion.prepareStatement(query);
+            pstmt = connexion.prepareStatement(query);
             
 //            private long adrId;
 //            private long desId;
@@ -65,7 +66,7 @@ public class AdresseDB implements DAOInterface{
                     + "SET adrNom = 'test', adrCp = '34344' "
                     + "WHERE adrId = " + adresse.getAdrId() + ";";
             
-            pstmt = DBUtil.connexion.prepareStatement(query);
+            pstmt = connexion.prepareStatement(query);
             
 //            private long adrId;
 //            private long desId;

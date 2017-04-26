@@ -21,8 +21,10 @@ import javax.swing.table.TableModel;
 import javax.swing.JComboBox;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
+import javax.swing.JOptionPane;
 //
 import controller.ClientController;
+import java.awt.Image;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -31,22 +33,22 @@ import model_db.Client;
 
 
 public class ClientPanel extends AbstractRubriquePanel {
- private JPanel bottom;
+    private JPanel bottom;
     private ButtonGroup buttonGroup1;
     private JPanel center;
-    private JButton jButton1;
+    private JButton btnSearch;
     private JButton jButton2;
     private JButton jButton3;
-    private JButton jButton4;
-    private JButton jButton5;
+    private JButton btnQuit;
+    private JButton btnMenuPrincipal;
     private JButton btnReactualiser;
     private JComboBox jComboBox1;
     private JLabel lblRubrique;
     private JLabel jLabel2;
     private JLabel jLabel3;
-    private JRadioButton jRadioButton1;
-    private JRadioButton jRadioButton2;
-    private JRadioButton jRadioButton3;
+    private JRadioButton rbClientId;
+    private JRadioButton rbPrenom;
+    private JRadioButton rbNom;
     private JScrollPane jScrollPane2;
     private JScrollPane jScrollPane3;
     private JSeparator jSeparator1;
@@ -54,7 +56,7 @@ public class ClientPanel extends AbstractRubriquePanel {
     private JTextArea jTextArea1;
     private JTextField jTextField1;
     private JTextField jTextField2;
-    private JTextField jTextField3;
+    private JTextField tfClientId;
     private JTextField jTextField4;
     private JPanel left;
     private JPanel top;
@@ -76,38 +78,14 @@ public class ClientPanel extends AbstractRubriquePanel {
     public void initComponents() {
         client = new Client();
         clientDB = new ClientDB();
-       
-        attClient = new Vector();
-        attClient.add("Id");
-        attClient.add("Genre");
-        attClient.add("Prenom");
-        attClient.add("Nom");
-        attClient.add("Email");
-        attClient.add("Mot de passe");
-        attClient.add( "Date Adhesion");
-        attClient.add("Tel F");
-        attClient.add("Tel M");
-        attClient.add("Statut");
-        attClient.add("Champ Libre"); 
         
         
-        
-        listeClients = clientDB.loadClientOfDB();
-        
-                
-        attClient.add(listeClients);
-        
-//        Vector v = new Vector;
-        
-      
-        
-        DefaultTableModel clientTable = new DefaultTableModel(listeClients, attClient);
         
         jTable2 = getjTable2();
-        jTable2.setModel(clientTable);
+        jTable2.setModel(recupererBaseClients());
         
         jComboBox1 = super.getjComboBox1();
-        jComboBox1.setModel(new DefaultComboBoxModel(new String[] { 
+        jComboBox1.setModel(new DefaultComboBoxModel(new String[] {
             "Genre",
             "Prenom",
             "Nom",
@@ -119,6 +97,8 @@ public class ClientPanel extends AbstractRubriquePanel {
             "Champ Libre"
         }));
         
+        //event buttons
+        
         jButton3 = super.getjButton3();
         
         jButton3.addActionListener(e -> validerChoixComboBox());
@@ -126,122 +106,225 @@ public class ClientPanel extends AbstractRubriquePanel {
         jTextField4.setText("");
         
         btnReactualiser = super.getBtnReactualiser();
-      // btnReactualiser.setIcon(new ImageIcon(getClass().getResource("/res/dataDownload_32.png")));
+        btnReactualiser.addActionListener(e -> reactualiserTable());
+        
+        btnMenuPrincipal = super.getBtnMenuPrincipal();
+        btnMenuPrincipal.addActionListener(e -> clientController.retourMenuPrincipal());
+        
+        btnQuit = super.getBtnQuit();
+        btnQuit.addActionListener(e -> clientController.quitFrame());
+        
+        btnSearch = super.getBtnSearch();
+        btnSearch.addActionListener(e -> chercherClient());
+        
+        //event radioBtn
+        rbClientId = super.getRbClientId();
+        rbClientId.setText("Id client");
+        
+        rbPrenom = super.getRbPrenom();
+        rbPrenom.setText("Prenom");
+        
+        rbNom = super.getRbNom();
+        rbNom.setText("Nom");
+        
+        //event tf
+        tfClientId = super.getTfClientId();
+        jTextField2 = super.getjTextField2();
+        
+        
         
         
     }
     
-    public void validerChoixComboBox() {
-     String choix = (String) jComboBox1.getSelectedItem();
-        switch(choix) {
-            case "Genre":
-                clientDB.update("Genre", jTextField4.getText());
-                break;
-            case "Prenom":
-                clientDB.update("Prenom", jTextField4.getText());
-                break;
-            case "Nom":
-                clientDB.update("Nom", jTextField4.getText());
-                jTextField4.setText("");
-                break;
-            case "Email":
-                clientDB.update("Email", jTextField4.getText());
-                break;
-            case "Mot de passe": 
-                clientDB.update("Mot de passe", jTextField4.getText());
-                break;
-            case "Date Adhesion":
-                clientDB.update("Date Adhesion", jTextField4.getText());
-                break;
-            case "Tel F": 
-                clientDB.update("Tel F", jTextField4.getText());
-                break;
-            case "Tel M":
-                clientDB.update("Tel M", jTextField4.getText());
-                break;
-            case "Champ Libre":
-                clientDB.update("Champ Libre", jTextField4.getText());
-                break;
+    public void chercherClient() {
+        long id = -1;
+        String chaine = "";
+        
+        if(rbClientId.isSelected()) {
+            try {
+                id = Long.valueOf(tfClientId.getText());
+                System.out.println("id: " + id);
+            }catch(NumberFormatException ex) {
+          
+            }
+            
+            if( id < 0 ) {
+                     JOptionPane.showMessageDialog(this, "Aucun id inseré ou valeur incorrecte. \nrecherche impossible", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+       
+            }
+            else {
+                Vector listeVectorId = clientDB.searchClient(id);
+                jTable2.setModel(new DefaultTableModel(listeVectorId, attClient));
+            }
+            
+        }else if(rbNom.isSelected()) {
+            chaine = jTextField2.getText();
+            if(chaine.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Aucun valeure entree. \nrecherche impossible", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else {
+              
+                System.out.println("tf " + jTextField2.getText());
+                Vector listeVectorNom = clientDB.searchClient(chaine);
+                jTable2.setModel(new DefaultTableModel(listeVectorNom, attClient));
+            }
         }
-                        
+        //TODO recherche par prenom
+//        else if(rbNom.isSelected()) {
+//            if(chaine.isEmpty()) {
+//                JOptionPane.showMessageDialog(this, "Aucun valeure entree. \nrecherche impossible", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+//            }
+//            else {
+//                chaine = jTextField2.getText();
+//                Vector listeVectorNom = clientDB.searchClient(chaine);
+//                jTable2.setModel(new DefaultTableModel(listeVectorNom, attClient));
+//            }
+//        }
+//    
     }
-    public void setjButton1(JButton jButton1) {
-        this.jButton1 = jButton1;
+    
+    public void reactualiserTable() {
+        jTable2.setModel(recupererBaseClients());
+        
     }
+    
+    public DefaultTableModel recupererBaseClients() {
+        attClient = new Vector();
+        attClient.add("Id");
+        attClient.add("Genre");
+        attClient.add("Prenom");
+        attClient.add("Nom");
+        attClient.add("Email");
+        attClient.add("Mot de passe");
+        attClient.add( "Date Adhesion");
+        attClient.add("Tel F");
+        attClient.add("Tel M");
+        attClient.add("Statut");
+        attClient.add("Champ Libre");
+                
+        listeClients = clientDB.loadClientOfDB();
+                
+        attClient.add(listeClients);
+        
+        DefaultTableModel clientTable = new DefaultTableModel(listeClients, attClient);
 
-    public void setjButton2(JButton jButton2) {
-        this.jButton2 = jButton2;
+        return clientTable;
     }
-
-    public void setjButton3(JButton jButton3) {
-        this.jButton3 = jButton3;
+    
+    public long validerChoixTable() {
+        int column = 0;
+        long value = -1;
+        try {
+            int row = jTable2.getSelectedRow();
+            value = (long) jTable2.getModel().getValueAt(row, column);
+        }catch(ArrayIndexOutOfBoundsException ex) {
+            ex.getMessage();
+        }
+        return value;
     }
-
-    public void setjButton4(JButton jButton4) {
-        this.jButton4 = jButton4;
+    
+    
+    public void validerChoixComboBox() {
+        
+        String choix = (String) jComboBox1.getSelectedItem();
+        System.out.println("combo " + jComboBox1.getSelectedItem());
+        
+        long id = validerChoixTable();
+        
+        if(id < 0) {
+            JOptionPane.showMessageDialog(this, "Aucune selection dans le tableau. \nModification impossible", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else {
+        System.out.println("id" + id);
+        
+            switch(choix) {
+                case "Genre":
+                    clientDB.update(id, "cliGenre", jTextField4.getText());
+                    jTextField4.setText("");
+                    break;
+                case "Prenom":
+                    clientDB.update(id, "cliPrenom", jTextField4.getText());
+                    jTextField4.setText("");
+                    break;
+                case "Nom":
+                    clientDB.update(id, "cliNom", jTextField4.getText());
+                    jTextField4.setText("");
+                    break;
+                case "Email":
+                    clientDB.update(id, "cliEmail", jTextField4.getText());
+                    jTextField4.setText("");
+                    break;
+                case "Mot de passe":
+                    clientDB.update(id, "cliMdp", jTextField4.getText());
+                    jTextField4.setText("");
+                    break;
+                case "Date Adhesion":
+                    clientDB.update(id, "cliDateAdhesion", jTextField4.getText());
+                    jTextField4.setText("");
+                    break;
+                case "Tel F":
+                    clientDB.update(id, "cliTelF", jTextField4.getText());
+                    jTextField4.setText("");
+                    break;
+                case "Tel M":
+                    clientDB.update(id, "cliTelM", jTextField4.getText());
+                    jTextField4.setText("");
+                    break;
+                case "Champ Libre":
+                    clientDB.update(id, "cliChampLibre", jTextField4.getText());
+                    jTextField4.setText("");
+                    break;
+            }
+        }
     }
-
-    public void setjButton5(JButton jButton5) {
-        this.jButton5 = jButton5;
+    
+    
+    
+    
+    
+    
+    
+    
+    public void setrbClientId(JRadioButton rbClientId) {
+        this.rbClientId = rbClientId;
     }
-
-    public void setjComboBox1(JComboBox jComboBox1) {
-        this.jComboBox1 = jComboBox1;
+    
+    public void setrbPrenom(JRadioButton rbPrenom) {
+        this.rbPrenom = rbPrenom;
     }
-
-    public void setLblRubrique(JLabel lblRubrique) {
-        this.lblRubrique = lblRubrique;
+    
+    public void setrbNom(JRadioButton rbNom) {
+        this.rbNom = rbNom;
     }
-
-    public void setjLabel2(JLabel jLabel2) {
-        this.jLabel2 = jLabel2;
-    }
-
-    public void setjLabel3(JLabel jLabel3) {
-        this.jLabel3 = jLabel3;
-    }
-
-    public void setjRadioButton1(JRadioButton jRadioButton1) {
-        this.jRadioButton1 = jRadioButton1;
-    }
-
-    public void setjRadioButton2(JRadioButton jRadioButton2) {
-        this.jRadioButton2 = jRadioButton2;
-    }
-
-    public void setjRadioButton3(JRadioButton jRadioButton3) {
-        this.jRadioButton3 = jRadioButton3;
-    }
-
+    
     public void setjTable2(JTable jTable2) {
         this.jTable2 = jTable2;
     }
-
+    
     public void setjTextArea1(JTextArea jTextArea1) {
         this.jTextArea1 = jTextArea1;
     }
-
+    
     public void setjTextField1(JTextField jTextField1) {
         this.jTextField1 = jTextField1;
     }
-
+    
     public void setjTextField2(JTextField jTextField2) {
         this.jTextField2 = jTextField2;
     }
-
-    public void setjTextField3(JTextField jTextField3) {
-        this.jTextField3 = jTextField3;
+    
+    public void settfClientId(JTextField tfClientId) {
+        this.tfClientId = tfClientId;
     }
-
+    
     public void setjTextField4(JTextField jTextField4) {
         this.jTextField4 = jTextField4;
     }
-
     
-  
+    
+    
     
     public void setController(ClientController clientController) {
         this.clientController = clientController;
     }
 }
-            

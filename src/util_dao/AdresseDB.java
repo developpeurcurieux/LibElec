@@ -60,7 +60,7 @@ public class AdresseDB implements DAOInterface{
                         
     // TODO Il ne faut oublier le update AdresseDB (attente pour voir sa mise en place)
     @Override
-    public void update(String attribut, String nouveauAttribut) {
+    public void update(long id, String attribut, String nouveauAttribut) {
             try {
             query = "UPDATE Adresse "
                     + "SET adrNom = 'test', adrCp = '34344' "

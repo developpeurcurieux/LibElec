@@ -11,7 +11,7 @@ public interface DAOInterface {
     
     public void insert();
     
-    public void update(String attribut, String nouveauAttribut);
+    public void update(long id, String attribut, String nouveauAttribut);
     
        
 }

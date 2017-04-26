@@ -17,18 +17,27 @@ import util_dao.ClientDB;
 
 public class ClientController implements Controller{
     private RootFrame rootFrame;
+    private MenuController menuController;
     private ClientPanel clientPanel;
     private ClientDB clientDB;
     
-    public ClientController(RootFrame rootFrame) {
+    
+    public ClientController(RootFrame rootFrame, MenuController menuController) {
         this.rootFrame = rootFrame;
+        this.menuController = menuController;
         updateFrame();
        
     }
     
+    
+    
     public void validerChoix() {
         
         
+    }
+    
+    public void retourMenuPrincipal() {
+     menuController.reloadMenuPrincipal();
     }
     
     @Override
@@ -38,6 +47,7 @@ public class ClientController implements Controller{
         
         clientPanel = new ClientPanel("RubriqueClient");
         clientPanel.setController(this);
+        clientDB = new ClientDB();
         
         rootFrame.addCard(clientPanel, "rubrique client");
         rootFrame.showPanel("rubrique client");

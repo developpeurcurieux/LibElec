@@ -39,7 +39,7 @@ public class MenuController implements Controller{
     }
     
     public void consulterClient() {
-        ClientController clientController = new ClientController(rootFrame);
+        ClientController clientController = new ClientController(rootFrame, this);
     }
     
     
@@ -51,4 +51,19 @@ public class MenuController implements Controller{
         System.exit(0);
         
     }
+    
+    public void reloadMenuPrincipal() {
+        rootFrame.setVisible(false);
+        
+        
+        menuPanel.setController(this);
+        
+        
+        rootFrame.showPanel("menu principal");
+        rootFrame.setBounds(0, 0, 750, 500);
+        rootFrame.setLocationRelativeTo(null);
+        rootFrame.setResizable(false);
+        rootFrame.setVisible(true);
+    }
+        
 }

@@ -44,23 +44,7 @@ public class ClientDB implements DAOInterface{
             
             
             pstmt = Connexion.connexion.prepareStatement(query);
-            
-//            private long adrId;
-//            private long desId;
-//            private long cliId;
-//            private long cli_cliId;
-//            private int adrNumVoie;
-//            private String adrNomVoie;
-//            private String adrNomVoieSuite;
-//            private String adrCp;
-//            private String adrVille;
-//            private String adrPays;
-//            private int adrStatut;
-            
-            
-//
-            
-            
+
             pstmt.executeUpdate();
             
         } catch(SQLException ex) {
@@ -70,29 +54,15 @@ public class ClientDB implements DAOInterface{
     
     // TODO Il ne faut oublier le update AdresseDB (attente pour voir sa mise en place)
     @Override
-    public void update(String attribut, String nouveauAttribut) {
+    public void update(long id, String attribut, String nouveauAttribut) {
         try {
             query = "UPDATE Client "
-                    + "SET cliNom = '" + nouveauAttribut + "' "
-                    + "WHERE cliId = " + 2 + ";";
+                    + "SET " + attribut +" = '" + nouveauAttribut + "' "
+                    + "WHERE cliId = " + id + ";";
             
-            System.out.println("query: " +query);
+           
             pstmt = Connexion.connexion.prepareStatement(query);
-            
-//            private long adrId;
-//            private long desId;
-//            private long cliId;
-//            private long cli_cliId;
-//            private int adrNumVoie;
-//            private String adrNomVoie;
-//            private String adrNomVoieSuite;
-//            private String adrCp;
-//            private String adrVille;
-//            private String adrPays;
-//            private int adrStatut;
-            
-            
-            pstmt.executeUpdate();
+      pstmt.executeUpdate();
             
         } catch(SQLException ex) {
             System.out.println("sql exception of update: " + ex.getMessage());
@@ -109,19 +79,7 @@ public class ClientDB implements DAOInterface{
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY
             );
-            
-            /*      private long cliId;
-            private int cliGenre;
-            private String cliPrenom;
-            private String cliNom;
-            private String cliEmail;
-            private String cliMdp;
-            private LocalDate cliDateAdhesion;
-            private String cliTelF;
-            private String cliTelM;
-            private int cliStatut;
-            //    private String cliChampLibre; */
-            
+       
             rs = stmt.executeQuery(query);
             while(rs.next()) {
                 client = new Client();
@@ -155,13 +113,117 @@ public class ClientDB implements DAOInterface{
                               
                 listeClients.add(v);
             }
-            
-            
-            
         }catch (SQLException ex) {
             System.out.println(" erreur chargement client" + ex.getMessage());
         }
         
         return listeClients;
     }
+    
+    public Vector searchClient(String nom) {
+        ResultSet rs;
+        Vector vectorNom = new Vector();
+        Vector listeVectorNom = new Vector();
+         try {
+            query = "SELECT * FROM Client "
+                    + "WHERE cliNom = '"
+                    + nom + "';";
+            
+            stmt = Connexion.connexion.createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY
+            );
+       
+            rs = stmt.executeQuery(query);
+            while(rs.next()) {
+                client = new Client();
+                
+                
+                client.setCliId(rs.getLong("cliId"));
+                client.setCliGenre(rs.getInt("cliGenre"));
+                client.setCliPrenom(rs.getString("cliPrenom"));
+                client.setCliNom(rs.getString("cliNom"));
+                client.setCliEmail(rs.getString("cliEmail"));
+                client.setCliMdp(rs.getString("cliMdp"));
+                client.setCliDateAdhesion(rs.getString("cliDateAdhesion"));
+                client.setCliTelF(rs.getString("cliTelF"));
+                client.setCliTelM(rs.getString("cliTelM"));
+                client.setCliStatut(rs.getInt("cliStatut"));
+                client.setCliChampLibre(rs.getString("cliChampLibre"));
+                
+                vectorNom.add(client.getCliId());
+                vectorNom.add(client.getCliGenre());
+                vectorNom.add(client.getCliPrenom());
+                vectorNom.add(client.getCliNom());
+                vectorNom.add(client.getCliEmail());
+                vectorNom.add(client.getCliMdp());
+                vectorNom.add(client.getCliDateAdhesion());
+                vectorNom.add(client.getCliTelF());
+                vectorNom.add(client.getCliTelM());
+                vectorNom.add(client.getCliStatut());
+                vectorNom.add(client.getCliChampLibre());
+                     
+                listeVectorNom.add(vectorNom);
+            }
+        }catch (SQLException ex) {
+            System.out.println(" erreur chargement client" + ex.getMessage());
+        }
+         
+         return listeVectorNom;
+    }
+    
+    
+     public Vector searchClient(long id) {
+        ResultSet rs;
+        Vector vectorId = new Vector();
+        Vector listeVectorId = new Vector();
+         try {
+            query = "SELECT * FROM Client "
+                    + "WHERE cliId = '"
+                    + id + "';";
+             System.out.println("query: " + query);
+            stmt = Connexion.connexion.createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY
+            );
+       
+            rs = stmt.executeQuery(query);
+            while(rs.next()) {
+                client = new Client();
+                
+                
+                client.setCliId(rs.getLong("cliId"));
+                client.setCliGenre(rs.getInt("cliGenre"));
+                client.setCliPrenom(rs.getString("cliPrenom"));
+                client.setCliNom(rs.getString("cliNom"));
+                client.setCliEmail(rs.getString("cliEmail"));
+                client.setCliMdp(rs.getString("cliMdp"));
+                client.setCliDateAdhesion(rs.getString("cliDateAdhesion"));
+                client.setCliTelF(rs.getString("cliTelF"));
+                client.setCliTelM(rs.getString("cliTelM"));
+                client.setCliStatut(rs.getInt("cliStatut"));
+                client.setCliChampLibre(rs.getString("cliChampLibre"));
+                
+                vectorId.add(client.getCliId());
+                vectorId.add(client.getCliGenre());
+                vectorId.add(client.getCliPrenom());
+                vectorId.add(client.getCliNom());
+                vectorId.add(client.getCliEmail());
+                vectorId.add(client.getCliMdp());
+                vectorId.add(client.getCliDateAdhesion());
+                vectorId.add(client.getCliTelF());
+                vectorId.add(client.getCliTelM());
+                vectorId.add(client.getCliStatut());
+                vectorId.add(client.getCliChampLibre());
+                     
+                listeVectorId.add(vectorId);
+               
+            }
+        }catch (SQLException ex) {
+            System.out.println(" erreur chargement client" + ex.getMessage());
+        }
+         
+         return listeVectorId;
+    }
+        
 }

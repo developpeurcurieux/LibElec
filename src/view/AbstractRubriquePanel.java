@@ -6,6 +6,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
@@ -32,19 +33,19 @@ public abstract class AbstractRubriquePanel extends JPanel{
     private JPanel bottom;
     private ButtonGroup buttonGroup1;
     private JPanel center;
-    private JButton jButton1;
+    private JButton btnSearch;
     private JButton jButton2;
     private JButton jButton3;
-    private JButton jButton4; 
+    private JButton btnQuit; 
     private JButton btnMenuPrincipal;
     private JButton btnReactualiser;
     private JComboBox jComboBox1;
     private JLabel lblRubrique;
     private JLabel jLabel2;
     private JLabel jLabel3;
-    private JRadioButton jRadioButton1;
-    private JRadioButton jRadioButton2;
-    private JRadioButton jRadioButton3;
+    private JRadioButton rbClientId;
+    private JRadioButton rbPrenom;
+    private JRadioButton rbNom;
     private JScrollPane jScrollPane2;
     private JScrollPane jScrollPane3;
     private JSeparator jSeparator1;
@@ -52,7 +53,7 @@ public abstract class AbstractRubriquePanel extends JPanel{
     private JTextArea jTextArea1;
     private JTextField jTextField1;
     private JTextField jTextField2;
-    private JTextField jTextField3;
+    private JTextField tfClientId;
     private JTextField jTextField4;
     private JPanel left;
     private JPanel top;
@@ -71,14 +72,14 @@ public abstract class AbstractRubriquePanel extends JPanel{
         buttonGroup1 = new ButtonGroup();
         
         bottom = new JPanel();
-        jRadioButton1 = new JRadioButton();
-        jRadioButton2 = new JRadioButton();
-        jRadioButton3 = new JRadioButton();
+        rbClientId = new JRadioButton();
+        rbPrenom = new JRadioButton();
+        rbNom = new JRadioButton();
         jTextField1 = new JTextField();
         jTextField2 = new JTextField();
-        jTextField3 = new JTextField();
-        jButton1 = new JButton("Chercher");
-        jButton4 = new JButton();
+        tfClientId = new JTextField();
+        btnSearch = new JButton();
+        btnQuit = new JButton();
         left = new JPanel();
         jTextField4 = new JTextField();
         jComboBox1 = new JComboBox();
@@ -92,45 +93,54 @@ public abstract class AbstractRubriquePanel extends JPanel{
         top = new JPanel();
         lblRubrique = new JLabel();
         btnMenuPrincipal = new JButton();
+        btnReactualiser = new JButton();
         center = new JPanel();
         jScrollPane3 = new JScrollPane();
         jTable2 = new JTable();
         
-        this.setPreferredSize(new Dimension(827, 620));
+        this.setPreferredSize(new Dimension(830, 620));
         setLayout(new BorderLayout());
         
         bottom.setPreferredSize(new Dimension(700, 140));
         
-        jRadioButton1.setText("choix 1");
-        jRadioButton3.setText("choix 2");
-        jRadioButton2.setText("choix 3");
+        rbClientId.setText("choix 1");
+        rbNom.setText("choix 2");
+        rbPrenom.setText("choix 3");
         
-        buttonGroup1.add(jRadioButton1);
-        buttonGroup1.add(jRadioButton2);
-        buttonGroup1.add(jRadioButton3);
+        buttonGroup1.add(rbClientId);
+        buttonGroup1.add(rbPrenom);
+        buttonGroup1.add(rbNom);
         
-        jButton4.setText("Quitter");
         
+       
+        ImageIcon iconQui = new ImageIcon(this.getClass().getResource("/resources/quitIcon_24.png"));
+        iconQui.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT);
+        btnQuit.setIcon(iconQui);
+        
+        ImageIcon iconSea = new ImageIcon(this.getClass().getResource("/resources/searchIcon_24.png"));
+        iconSea.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT);
+        btnSearch.setIcon(iconSea);        
+                
         GroupLayout bottomLayout = new GroupLayout(bottom);
         bottom.setLayout(bottomLayout);
-         bottomLayout.setHorizontalGroup(
+        bottomLayout.setHorizontalGroup(
             bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bottomLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnQuit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addGroup(bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomLayout.createSequentialGroup()
                         .addGroup(bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton3))
+                            .addComponent(rbClientId, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rbNom))
                         .addGap(18, 18, 18)
                         .addGroup(bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfClientId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(43, 43, 43)
-                        .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rbPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -140,24 +150,28 @@ public abstract class AbstractRubriquePanel extends JPanel{
             .addGroup(bottomLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton4)
+                    .addComponent(btnQuit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(bottomLayout.createSequentialGroup()
                         .addGroup(bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton1))
+                            .addComponent(tfClientId, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rbClientId))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                         .addGroup(bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton2)
+                            .addComponent(rbPrenom)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton3))
+                            .addComponent(rbNom))
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
         
         add(bottom, BorderLayout.PAGE_END);
+         
+        
+        
+        
         
         left.setPreferredSize(new Dimension(250, 100));
         
@@ -242,13 +256,21 @@ public abstract class AbstractRubriquePanel extends JPanel{
         top.add(lblRubrique);
         lblRubrique.setBounds(379, 17, 250, 29);
         
-        btnMenuPrincipal.setText("Menu Principal");
-        top.add(btnMenuPrincipal);
-        btnMenuPrincipal.setBounds(6, 6, 150, 30);
         
-        top.add(btnReactualiser);
-        btnReactualiser.setBounds(760, 10, 60, 50);
+        btnMenuPrincipal.setBounds(10, 10, 40, 40);
+        ImageIcon iconMen = new ImageIcon(this.getClass().getResource("/resources/homeIcon_24.png"));
+        iconMen.getImage().getScaledInstance(btnMenuPrincipal.getWidth(), btnMenuPrincipal.getHeight(), Image.SCALE_DEFAULT);
+        btnMenuPrincipal.setIcon(iconMen);
        
+        top.add(btnMenuPrincipal);
+        
+       
+        btnReactualiser.setBounds(900, 10, 40, 40);
+        ImageIcon iconRea = new ImageIcon(this.getClass().getResource("/resources/dataDownload_24.png"));
+        iconRea.getImage().getScaledInstance(btnReactualiser.getWidth(), btnReactualiser.getHeight(), Image.SCALE_DEFAULT);
+        btnReactualiser.setIcon(iconRea);
+       
+        top.add(btnReactualiser);
         add(top, BorderLayout.PAGE_START);
         
         center.setPreferredSize(new Dimension(800, 400));
@@ -290,12 +312,12 @@ public abstract class AbstractRubriquePanel extends JPanel{
         add(center, BorderLayout.CENTER);
     }
 
-    public JButton getjButton1() {
-        return jButton1;
+    public JButton getBtnSearch() {
+        return btnSearch;
     }
 
-    public void setjButton1(JButton jButton1) {
-        this.jButton1 = jButton1;
+    public void setBtnSearch(JButton btnSearch) {
+        this.btnSearch = btnSearch;
     }
 
     public JButton getjButton2() {
@@ -314,12 +336,12 @@ public abstract class AbstractRubriquePanel extends JPanel{
         this.jButton3 = jButton3;
     }
 
-    public JButton getjButton4() {
-        return jButton4;
+    public JButton getBtnQuit() {
+        return btnQuit;
     }
 
-    public void setjButton4(JButton jButton4) {
-        this.jButton4 = jButton4;
+    public void setBtnQuit(JButton btnQuit) {
+        this.btnQuit = btnQuit;
     }
 
     public JButton getBtnMenuPrincipal() {
@@ -371,28 +393,28 @@ public abstract class AbstractRubriquePanel extends JPanel{
         this.jLabel3 = jLabel3;
     }
 
-    public JRadioButton getjRadioButton1() {
-        return jRadioButton1;
+    public JRadioButton getRbClientId() {
+        return rbClientId;
     }
 
-    public void setjRadioButton1(JRadioButton jRadioButton1) {
-        this.jRadioButton1 = jRadioButton1;
+    public void setRbClientId(JRadioButton rbClientId) {
+        this.rbClientId = rbClientId;
     }
 
-    public JRadioButton getjRadioButton2() {
-        return jRadioButton2;
+    public JRadioButton getRbPrenom() {
+        return rbPrenom;
     }
 
-    public void setjRadioButton2(JRadioButton jRadioButton2) {
-        this.jRadioButton2 = jRadioButton2;
+    public void setRbPrenom(JRadioButton rbPrenom) {
+        this.rbPrenom = rbPrenom;
     }
 
-    public JRadioButton getjRadioButton3() {
-        return jRadioButton3;
+    public JRadioButton getRbNom() {
+        return rbNom;
     }
 
-    public void setjRadioButton3(JRadioButton jRadioButton3) {
-        this.jRadioButton3 = jRadioButton3;
+    public void setRbNom(JRadioButton rbNom) {
+        this.rbNom = rbNom;
     }
 
     public JTable getjTable2() {
@@ -427,12 +449,12 @@ public abstract class AbstractRubriquePanel extends JPanel{
         this.jTextField2 = jTextField2;
     }
 
-    public JTextField getjTextField3() {
-        return jTextField3;
+    public JTextField getTfClientId() {
+        return tfClientId;
     }
 
-    public void setjTextField3(JTextField jTextField3) {
-        this.jTextField3 = jTextField3;
+    public void setTfClientId(JTextField tfClientId) {
+        this.tfClientId = tfClientId;
     }
 
     public JTextField getjTextField4() {

@@ -1,18 +1,17 @@
 
 package controller;
-import model.*;
+
 import view.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class ConnectionController implements Controller {
-  private ConnectionModel connectionModel;
+
   private RootFrame rootFrame;
   private ConnectionPanel connectionPanel;
   
-  public ConnectionController(ConnectionModel connectionModel, RootFrame rootFrame) {
-      this.connectionModel = connectionModel;
-      this.rootFrame = rootFrame;
+  public ConnectionController(RootFrame rootFrame) {
+           this.rootFrame = rootFrame;
       connectionPanel = new ConnectionPanel();
       connectionPanel.setController(this);
       

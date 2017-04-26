@@ -12,16 +12,23 @@ package controller;
 
 import view.RootFrame;
 import view.ClientPanel;
+import util_dao.ClientDB;
 
 
 public class ClientController implements Controller{
     private RootFrame rootFrame;
     private ClientPanel clientPanel;
+    private ClientDB clientDB;
     
     public ClientController(RootFrame rootFrame) {
         this.rootFrame = rootFrame;
         updateFrame();
        
+    }
+    
+    public void validerChoix() {
+        
+        
     }
     
     @Override
@@ -34,7 +41,7 @@ public class ClientController implements Controller{
         
         rootFrame.addCard(clientPanel, "rubrique client");
         rootFrame.showPanel("rubrique client");
-        rootFrame.setBounds(0, 0, 827, 600);
+        rootFrame.setBounds(0, 0, 950, 800);
         rootFrame.setLocationRelativeTo(null);
         rootFrame.setResizable(false);
         rootFrame.setVisible(true);

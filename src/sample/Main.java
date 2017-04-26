@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package sample;
-import model.*;
+
 import view.*;
 import controller.*;
 /**
@@ -13,10 +13,10 @@ import controller.*;
  */
 public class Main {
     public static void main(String[] args) {
-        ConnectionModel connectionModel = new ConnectionModel();
+       
         RootFrame rootFrame = new RootFrame();
         
-        ConnectionController connectionController = new ConnectionController(connectionModel, rootFrame);
+        ConnectionController connectionController = new ConnectionController(rootFrame);
         
         
     }

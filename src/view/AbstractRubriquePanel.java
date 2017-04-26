@@ -9,6 +9,7 @@ import java.awt.GridLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -34,8 +35,9 @@ public abstract class AbstractRubriquePanel extends JPanel{
     private JButton jButton1;
     private JButton jButton2;
     private JButton jButton3;
-    private JButton jButton4;
-    private JButton jButton5;
+    private JButton jButton4; 
+    private JButton btnMenuPrincipal;
+    private JButton btnReactualiser;
     private JComboBox jComboBox1;
     private JLabel lblRubrique;
     private JLabel jLabel2;
@@ -89,12 +91,12 @@ public abstract class AbstractRubriquePanel extends JPanel{
         jButton3 = new JButton();
         top = new JPanel();
         lblRubrique = new JLabel();
-        jButton5 = new JButton();
+        btnMenuPrincipal = new JButton();
         center = new JPanel();
         jScrollPane3 = new JScrollPane();
         jTable2 = new JTable();
         
-        setPreferredSize(new Dimension(827, 620));
+        this.setPreferredSize(new Dimension(827, 620));
         setLayout(new BorderLayout());
         
         bottom.setPreferredSize(new Dimension(700, 140));
@@ -111,50 +113,49 @@ public abstract class AbstractRubriquePanel extends JPanel{
         
         GroupLayout bottomLayout = new GroupLayout(bottom);
         bottom.setLayout(bottomLayout);
-        bottomLayout.setHorizontalGroup(
-                bottomLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(bottomLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jButton4, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
-                                .addGroup(bottomLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                        .addComponent(jButton1, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(GroupLayout.Alignment.TRAILING, bottomLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                                .addGroup(bottomLayout.createSequentialGroup()
-                                                        .addComponent(jRadioButton1, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(10, 10, 10)
-                                                        .addComponent(jTextField3, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(bottomLayout.createSequentialGroup()
-                                                        .addComponent(jRadioButton3)
-                                                        .addGap(37, 37, 37)
-                                                        .addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(44, 44, 44)
-                                                        .addComponent(jRadioButton2, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))))
-                                .addContainerGap())
+         bottomLayout.setHorizontalGroup(
+            bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bottomLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                .addGroup(bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomLayout.createSequentialGroup()
+                        .addGroup(bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton3))
+                        .addGap(18, 18, 18)
+                        .addGroup(bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(43, 43, 43)
+                        .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         bottomLayout.setVerticalGroup(
-                bottomLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(bottomLayout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addGroup(bottomLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jButton4)
-                                        .addGroup(bottomLayout.createSequentialGroup()
-                                                .addGroup(bottomLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jRadioButton1)
-                                                        .addComponent(jTextField3, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-                                                .addGap(10, 10, 10)
-                                                .addGroup(bottomLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jRadioButton3)
-                                                        .addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(bottomLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-                                                                .addComponent(jRadioButton2)))
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jButton1, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap())
+            bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bottomLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton4)
+                    .addGroup(bottomLayout.createSequentialGroup()
+                        .addGroup(bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addGroup(bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton2)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton3))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
+
         
         add(bottom, BorderLayout.PAGE_END);
         
@@ -162,7 +163,7 @@ public abstract class AbstractRubriquePanel extends JPanel{
         
         jTextField4.setText("jTextField4");
         
-        jComboBox1.setModel(new DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        
         
         jLabel2.setHorizontalAlignment(SwingConstants.CENTER);
         jLabel2.setText("Element a modifier");
@@ -241,13 +242,16 @@ public abstract class AbstractRubriquePanel extends JPanel{
         top.add(lblRubrique);
         lblRubrique.setBounds(379, 17, 250, 29);
         
-        jButton5.setText("Menu Principal");
-        top.add(jButton5);
-        jButton5.setBounds(6, 6, 114, 30);
+        btnMenuPrincipal.setText("Menu Principal");
+        top.add(btnMenuPrincipal);
+        btnMenuPrincipal.setBounds(6, 6, 150, 30);
         
+        top.add(btnReactualiser);
+        btnReactualiser.setBounds(760, 10, 60, 50);
+       
         add(top, BorderLayout.PAGE_START);
         
-        center.setPreferredSize(new Dimension(500, 400));
+        center.setPreferredSize(new Dimension(800, 400));
         center.setLayout(new GridLayout(1, 0));
         
         jTable2.setModel(new DefaultTableModel(
@@ -318,14 +322,23 @@ public abstract class AbstractRubriquePanel extends JPanel{
         this.jButton4 = jButton4;
     }
 
-    public JButton getjButton5() {
-        return jButton5;
+    public JButton getBtnMenuPrincipal() {
+        return btnMenuPrincipal;
     }
 
-    public void setjButton5(JButton jButton5) {
-        this.jButton5 = jButton5;
+    public void setBtnMenuPrincipal(JButton btnMenuPrincipal) {
+        this.btnMenuPrincipal = btnMenuPrincipal;
     }
 
+    public JButton getBtnReactualiser() {
+        return btnReactualiser;
+    }
+
+    public void setBtnReactualiser(JButton btnReactualiser) {
+        this.btnReactualiser = btnReactualiser;
+    }
+
+    
     public JComboBox getjComboBox1() {
         return jComboBox1;
     }

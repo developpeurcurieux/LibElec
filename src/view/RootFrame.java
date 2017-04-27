@@ -5,6 +5,7 @@ import controller.*;
 import java.awt.CardLayout;
 import java.awt.BorderLayout;
 import java.awt.Image;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.ImageIcon;
@@ -25,6 +26,8 @@ public class RootFrame extends JFrame {
     //
     private CardLayout cards;
     private JPanel cardPanel;
+    //
+    private ArrayList<String> cardsNoms = new ArrayList(30);
     
     public RootFrame() {
         initGuiLAF();
@@ -78,11 +81,28 @@ public class RootFrame extends JFrame {
     public void addCard(JPanel jPanel, String namePanel) {
                 
         cardPanel.add(jPanel, namePanel);
+        cardsNoms.add(namePanel);
+        
        
     }
     
-    public void showPanel(String name) {
-        cards.show(cardPanel, name);
+    public void showPanel(String namePanel) {
+        cards.show(cardPanel, namePanel);
+        
+    }
+    
+    public boolean ifPanelExists(String name) {
+        boolean yes = false;
+        for(String s : cardsNoms) {
+            if(s.equals(name)) {
+                yes = true;
+            }
+            else {
+                yes = false;
+            }
+        }
+        
+        return yes;
         
     }
     

@@ -24,6 +24,7 @@ import javax.swing.JTextArea;
 import javax.swing.JOptionPane;
 //
 import controller.ClientController;
+import controller.AdresseController;
 import java.awt.Image;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
@@ -42,6 +43,8 @@ public class ClientPanel extends AbstractRubriquePanel {
     private JButton btnQuit;
     private JButton btnMenuPrincipal;
     private JButton btnReactualiser;
+    private JButton btnAdresse;
+    private JButton btnDestinataire;
     private JComboBox jComboBox1;
     private JLabel lblRubrique;
     private JLabel jLabel2;
@@ -81,8 +84,9 @@ public class ClientPanel extends AbstractRubriquePanel {
         
         
         
-        jTable2 = getjTable2();
+        jTable2 = super.getjTable2();
         jTable2.setModel(recupererBaseClients());
+        
         
         jComboBox1 = super.getjComboBox1();
         jComboBox1.setModel(new DefaultComboBoxModel(new String[] {
@@ -100,7 +104,7 @@ public class ClientPanel extends AbstractRubriquePanel {
         //event buttons
         
         jButton3 = super.getjButton3();
-        jButton3.addActionListener(e -> validerChoixComboBox());
+        jButton3.addActionListener(e -> modifierChoixComboBox());
         
         jTextField4 = super.getjTextField4();
         jTextField4.setText("");
@@ -122,22 +126,41 @@ public class ClientPanel extends AbstractRubriquePanel {
         btnSearch = super.getBtnSearch();
         btnSearch.addActionListener(e -> chercherClient());
         
+        btnAdresse = super.getjButton7();
+        btnAdresse.setText("Adresse");
+        btnAdresse.addActionListener(e -> chargerLesAdressesDuClient());
+        
+        btnDestinataire = super.getjButton8();
+        btnDestinataire.setText("Destinataire");
+               
+        
         //event radioBtn
-        rbClientId = super.getRbClientId();
+        rbClientId = super.getjRadioButton1();
         rbClientId.setText("Id client");
         
-        rbPrenom = super.getRbPrenom();
+        rbPrenom = super.getjRadioButton3();
         rbPrenom.setText("Prenom");
         
-        rbNom = super.getRbNom();
+        rbNom = super.getjRadioButton2();
         rbNom.setText("Nom");
         
         //event tf
-        tfClientId = super.getTfClientId();
+        tfClientId = super.getjTextField3();
         jTextField2 = super.getjTextField2();
+          
         
         
+    }
+    
+    public void chargerLesAdressesDuClient() {
+        long id = validerChoixTable();
         
+        if(id < 0) {
+            JOptionPane.showMessageDialog(this, "Aucune selection dans le tableau. \nConsultation adresse impossible", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else {
+            clientController.consulterLesAdresses(id);
+        }
         
     }
     
@@ -229,7 +252,7 @@ public class ClientPanel extends AbstractRubriquePanel {
     }
     
     
-    public void validerChoixComboBox() {
+    public void modifierChoixComboBox() {
         
         String choix = (String) jComboBox1.getSelectedItem();
         System.out.println("combo " + jComboBox1.getSelectedItem());

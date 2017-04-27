@@ -13,7 +13,7 @@ package controller;
 import view.RootFrame;
 import view.ClientPanel;
 import util_dao.ClientDB;
-
+import javax.swing.JFrame;
 
 public class ClientController implements Controller{
     private RootFrame rootFrame;
@@ -29,6 +29,9 @@ public class ClientController implements Controller{
        
     }
     
+    public void consulterLesAdresses(long id) {
+        AdresseController adresseController = new AdresseController(rootFrame, id);
+    }
     
     
     public void validerChoix() {
@@ -42,15 +45,15 @@ public class ClientController implements Controller{
     
     @Override
     public void updateFrame() {
-      
+        String nomPanel = "Rubrique Client";
         rootFrame.setVisible(false);
         
-        clientPanel = new ClientPanel("Rubrique Client");
+        clientPanel = new ClientPanel(nomPanel);
         clientPanel.setController(this);
         clientDB = new ClientDB();
         
-        rootFrame.addCard(clientPanel, "rubrique client");
-        rootFrame.showPanel("rubrique client");
+        rootFrame.addCard(clientPanel, nomPanel);
+        rootFrame.showPanel(nomPanel);
         rootFrame.setBounds(0, 0, 950, 800);
         rootFrame.setLocationRelativeTo(null);
         rootFrame.setResizable(false);
@@ -63,5 +66,9 @@ public class ClientController implements Controller{
         rootFrame.setVisible(false);
         System.exit(0);
         
+    }
+    
+    public RootFrame getRootFrame() {
+        return this.rootFrame;
     }
 }

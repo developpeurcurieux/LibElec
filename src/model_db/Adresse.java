@@ -14,8 +14,8 @@ public class Adresse {
     private String adrPays;
     private int adrStatut;
     
-    public Adresse() {
-        
+    public Adresse(long cliId) {
+        this.cliId = cliId;
     }
 
     public Adresse(long adrId, long desId, long cliId, long cli_cliId, int adrNumVoie, String adrNomVoie, String adrNomVoieSuite, String adrCp, String adrVille, String adrPays, int adrStatut) {

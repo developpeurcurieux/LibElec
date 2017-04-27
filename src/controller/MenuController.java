@@ -14,7 +14,7 @@ import view.*;
 import javax.swing.JFrame;
 
 public class MenuController implements Controller{
-    
+    String nomPanel = "Menu Principal";
     private MenuPanel menuPanel;
     private RootFrame rootFrame;
     
@@ -25,17 +25,27 @@ public class MenuController implements Controller{
     
     @Override
     public void updateFrame() {
+        
         rootFrame.setVisible(false);
         
         menuPanel = new MenuPanel();
         menuPanel.setController(this);
         
-        rootFrame.addCard(menuPanel, "menu principal");
-        rootFrame.showPanel("menu principal");
+        if(rootFrame.ifPanelExists(nomPanel)) {
+            rootFrame.showPanel(nomPanel);
+            rootFrame.setBounds(0, 0, 750, 500);
+            rootFrame.setLocationRelativeTo(null);
+            rootFrame.setResizable(false);
+            rootFrame.setVisible(true);
+        }
+        else {
+        rootFrame.addCard(menuPanel, nomPanel);
+        rootFrame.showPanel(nomPanel);
         rootFrame.setBounds(0, 0, 750, 500);
         rootFrame.setLocationRelativeTo(null);
         rootFrame.setResizable(false);
         rootFrame.setVisible(true);
+        }
     }
     
     public void consulterClient() {
@@ -59,7 +69,7 @@ public class MenuController implements Controller{
         menuPanel.setController(this);
         
         
-        rootFrame.showPanel("menu principal");
+        rootFrame.showPanel(nomPanel);
         rootFrame.setBounds(0, 0, 750, 500);
         rootFrame.setLocationRelativeTo(null);
         rootFrame.setResizable(false);

@@ -151,7 +151,7 @@ public class ConnectionPanel extends JPanel {
 //        else {
 //                JOptionPane.showMessageDialog(this, "Connection impossible. \nLogin ou mot de passe incorrect", "Error", JOptionPane.INFORMATION_MESSAGE);
 //        }
-        
+//        
         controller.updateFrame();
         
     }

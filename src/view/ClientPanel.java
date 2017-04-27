@@ -100,10 +100,15 @@ public class ClientPanel extends AbstractRubriquePanel {
         //event buttons
         
         jButton3 = super.getjButton3();
-        
         jButton3.addActionListener(e -> validerChoixComboBox());
+        
         jTextField4 = super.getjTextField4();
         jTextField4.setText("");
+        
+        jButton2 = super.getjButton2();
+        jButton2.addActionListener(e -> validerChampLibre());
+        
+        jTextArea1 = super.getjTextArea1();
         
         btnReactualiser = super.getBtnReactualiser();
         btnReactualiser.addActionListener(e -> reactualiserTable());
@@ -160,7 +165,7 @@ public class ClientPanel extends AbstractRubriquePanel {
         }else if(rbNom.isSelected()) {
             chaine = jTextField2.getText();
             if(chaine.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Aucun valeure entree. \nrecherche impossible", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Aucun valeur entree. \nrecherche impossible", "Erreur", JOptionPane.INFORMATION_MESSAGE);
             }
             else {
               
@@ -270,20 +275,38 @@ public class ClientPanel extends AbstractRubriquePanel {
                     clientDB.update(id, "cliTelM", jTextField4.getText());
                     jTextField4.setText("");
                     break;
-                case "Champ Libre":
-                    clientDB.update(id, "cliChampLibre", jTextField4.getText());
-                    jTextField4.setText("");
-                    break;
-            }
+                  }
         }
     }
+        
+        public void validerChampLibre() {
+            int column = 0;
+            long id = -1;
+            String champ = "";
+            try {
+                int row = jTable2.getSelectedRow(); 
+                id = (long) jTable2.getModel().getValueAt(row, column);
+            }catch(ArrayIndexOutOfBoundsException ex) {
+                ex.getMessage();
+            }
+            
+            if(id < 0) {
+                JOptionPane.showMessageDialog(this, "aucun client selectionne", "erreur", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else {
+                champ = jTextArea1.getText();
+                if(champ.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, " aucune donnee detectee dans 'champ libre'", "erreur", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else {
+                    clientDB.update(id, "cliChampLibre", champ);
+                    jTextArea1.setText("");
+                }
+            }
+             
+        }
     
-    
-    
-    
-    
-    
-    
+   
     
     public void setrbClientId(JRadioButton rbClientId) {
         this.rbClientId = rbClientId;

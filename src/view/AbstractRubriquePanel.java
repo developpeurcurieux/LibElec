@@ -123,6 +123,7 @@ public abstract class AbstractRubriquePanel extends JPanel{
                 
         GroupLayout bottomLayout = new GroupLayout(bottom);
         bottom.setLayout(bottomLayout);
+        
         bottomLayout.setHorizontalGroup(
             bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bottomLayout.createSequentialGroup()
@@ -145,6 +146,10 @@ public abstract class AbstractRubriquePanel extends JPanel{
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
+        
+        
+        
+        
         bottomLayout.setVerticalGroup(
             bottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bottomLayout.createSequentialGroup()

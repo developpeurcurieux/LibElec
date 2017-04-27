@@ -45,7 +45,7 @@ public class ClientController implements Controller{
       
         rootFrame.setVisible(false);
         
-        clientPanel = new ClientPanel("RubriqueClient");
+        clientPanel = new ClientPanel("Rubrique Client");
         clientPanel.setController(this);
         clientDB = new ClientDB();
         

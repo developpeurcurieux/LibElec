@@ -1,4 +1,0 @@
-SwingTest04.PromotionJPanel
-SwingTest04.PromotionJPanel$1
-SwingTest04.PromotionJPanel$2
-SwingTest04.PromotionJPanel$3

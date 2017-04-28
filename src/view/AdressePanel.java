@@ -72,6 +72,9 @@ public class AdressePanel extends AbstractRubriquePanel{
         btnReactualiser = super.getBtnReactualiser();
         btnReactualiser.addActionListener( e -> reactualiserTable());
         
+        btnQuit = super.getBtnQuit();
+        btnQuit.addActionListener(e -> adresseController.quitFrame());
+        
         jButton3 = super.getjButton3();
         jButton3.addActionListener(e -> modifierChoixComboBox());
         

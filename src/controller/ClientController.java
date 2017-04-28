@@ -33,6 +33,10 @@ public class ClientController implements Controller{
         AdresseController adresseController = new AdresseController(rootFrame, id);
     }
     
+    public void consulterLesDestinataires(long id) {
+        DestinataireController destinataireController = new DestinataireController(rootFrame, id);
+    }
+    
     
     public void validerChoix() {
         
@@ -45,19 +49,31 @@ public class ClientController implements Controller{
     
     @Override
     public void updateFrame() {
-        String nomPanel = "Rubrique Client";
+        String nomPanel = "Client";
         rootFrame.setVisible(false);
         
         clientPanel = new ClientPanel(nomPanel);
         clientPanel.setController(this);
         clientDB = new ClientDB();
+       
+        if(rootFrame.ifPanelExists(nomPanel)) {
         
+        rootFrame.showPanel(nomPanel);
+        rootFrame.setBounds(0, 0, 950, 800);
+        rootFrame.setLocationRelativeTo(null);
+        rootFrame.setResizable(false);
+        rootFrame.setVisible(true);
+        }
+        else {
+            
         rootFrame.addCard(clientPanel, nomPanel);
         rootFrame.showPanel(nomPanel);
         rootFrame.setBounds(0, 0, 950, 800);
         rootFrame.setLocationRelativeTo(null);
         rootFrame.setResizable(false);
         rootFrame.setVisible(true);
+        }
+        
     }
     
     @Override
@@ -68,7 +84,5 @@ public class ClientController implements Controller{
         
     }
     
-    public RootFrame getRootFrame() {
-        return this.rootFrame;
-    }
+    
 }

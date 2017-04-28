@@ -1,8 +1,8 @@
-USE libElec
+USE libelec
 
 ALTER TABLE Adresse 
 ADD CONSTRAINT 
-PRIMARY KEY (adId)
+PRIMARY KEY (adrId)
 
 ALTER TABLE Appartenance
 ADD CONSTRAINT 

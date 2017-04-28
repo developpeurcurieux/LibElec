@@ -5,7 +5,7 @@
 */
 package view;
 
-import controller.MenuController;
+import controller.*;
 //
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -47,7 +47,8 @@ public class MenuPanel extends JPanel{
     private JLabel jLabel2;
     private JLabel jLabel3;
     private JLabel jLabel4;
-    
+    private RootFrame rootFrame;
+    private SwingTestController editeurController;
     
     public MenuPanel() {
         initComponents();
@@ -56,7 +57,8 @@ public class MenuPanel extends JPanel{
 
     
     private void initComponents() {
-
+        
+        
         
         Right = new JPanel();
         jLabel2 = new JLabel();
@@ -103,17 +105,30 @@ public class MenuPanel extends JPanel{
         Right.add(jButton7);
 
         btnQuit4.setText("Editeur");
+        btnQuit4.addActionListener(e -> menuController.consulterEditeur());
         Right.add(btnQuit4);
 
         btnQuit5.setText("Mot-cles");
         Right.add(btnQuit5);
 
         btnQuit3.setText("Employe");
+        btnQuit3.addActionListener(e -> menuController.consulterEmploye());
+        
         Right.add(btnQuit3);
 
         jButton9.setText("Tva");
+        jButton9.addActionListener(e -> menuController.consulterTva());
         Right.add(jButton9);
-
+        
+        JButton jBtn = new JButton();
+        jBtn.setVisible(false);
+        jBtn.setEnabled(false);
+        Right.add(jBtn);
+        
+        JButton jBtnInfos = new JButton("Infos Librairie");
+        jBtnInfos.addActionListener(e -> menuController.consulterInfoLibrairie());
+        Right.add(jBtnInfos);
+        
         this.add(Right, BorderLayout.LINE_END);
 
         Left.setPreferredSize(new Dimension(130, 300));
@@ -129,6 +144,7 @@ public class MenuPanel extends JPanel{
         Left.add(jButton2);
 
         jButton3.setText("Promotion");
+        jButton3.addActionListener(e -> menuController.consulterPromotion());
         Left.add(jButton3);
 
         jButton5.setText("Commande");
@@ -199,4 +215,5 @@ public class MenuPanel extends JPanel{
     public void consulterClient() {
         menuController.consulterClient();
     }
+    
 }

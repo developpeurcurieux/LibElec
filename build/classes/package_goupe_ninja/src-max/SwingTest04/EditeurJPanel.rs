@@ -1,4 +1,0 @@
-SwingTest04.EditeurJPanel$1
-SwingTest04.EditeurJPanel$3
-SwingTest04.EditeurJPanel
-SwingTest04.EditeurJPanel$2

@@ -52,6 +52,28 @@ public class MenuController implements Controller{
         ClientController clientController = new ClientController(rootFrame, this);
     }
     
+    public void consulterEditeur() {
+     SwingTestController editeurController = new SwingTestController(rootFrame, "Editeur");   
+    }
+    
+    public void consulterEmploye() {
+     SwingTestController employeController = new SwingTestController(rootFrame, "Employe");   
+    }
+    
+    public void consulterInfoLibrairie() {
+     SwingTestController infoLibrairieController = new SwingTestController(rootFrame, "Infos Librairie");   
+    }
+    
+    public void consulterPromotion() {
+     SwingTestController PromotionController = new SwingTestController(rootFrame, "Promotion");   
+    }
+    
+    public void consulterTva() {
+    SwingTestController tvaController = new SwingTestController(rootFrame, "Tva");   
+    }
+    
+    
+    
     
     
     @Override
@@ -74,6 +96,10 @@ public class MenuController implements Controller{
         rootFrame.setLocationRelativeTo(null);
         rootFrame.setResizable(false);
         rootFrame.setVisible(true);
+    }
+    
+    public RootFrame getRootFrame() {
+        return this.rootFrame;
     }
         
 }

@@ -12,11 +12,11 @@ public class ConnectionController implements Controller {
   
   public ConnectionController(RootFrame rootFrame) {
            this.rootFrame = rootFrame;
-      connectionPanel = new ConnectionPanel();
-      connectionPanel.setController(this);
+           connectionPanel = new ConnectionPanel();
+           connectionPanel.setController(this);
       
-      rootFrame.addCard(connectionPanel, "connection");
-      rootFrame.setVisible(true);
+           rootFrame.addCard(connectionPanel, "connection");
+           rootFrame.setVisible(true);
   }
   
 

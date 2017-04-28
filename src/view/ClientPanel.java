@@ -132,6 +132,7 @@ public class ClientPanel extends AbstractRubriquePanel {
         
         btnDestinataire = super.getjButton8();
         btnDestinataire.setText("Destinataire");
+        btnDestinataire.addActionListener(e -> chargerLesDestinatairesClient());
                
         
         //event radioBtn
@@ -160,6 +161,18 @@ public class ClientPanel extends AbstractRubriquePanel {
         }
         else {
             clientController.consulterLesAdresses(id);
+        }
+        
+    }
+    
+    public void chargerLesDestinatairesClient() {
+        long id = validerChoixTable();
+        
+        if(id < 0) {
+            JOptionPane.showMessageDialog(this, "Aucune selection dans le tableau. \nConsultation adresse impossible", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else {
+            clientController.consulterLesDestinataires(id);
         }
         
     }

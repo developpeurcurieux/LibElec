@@ -31,7 +31,7 @@ public class AdresseController implements Controller{
     
     @Override
     public void updateFrame() {
-        String nomPanel = "Adresses Client";
+        String nomPanel = "Adresses";
         
         rootFrame.setVisible(false);
         
@@ -69,6 +69,8 @@ public class AdresseController implements Controller{
     
     @Override
     public void quitFrame() {
-        
+           rootFrame.setEnabled(false);
+        rootFrame.setVisible(false);
+        System.exit(0);
     }
 }

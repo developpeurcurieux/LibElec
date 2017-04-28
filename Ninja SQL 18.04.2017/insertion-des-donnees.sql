@@ -34,7 +34,7 @@ values
 --('Adrian Vang','06 39 44 71 92','elit.Aliquam@aaliquet.org',0,' '),
 ('Evan Franks','02 80 96 51 18','sed@necdiam.co.uk',1,'jeune editeur'),
 ('Lamar Ochoa','01 79 19 08 75','est.mollis.non@idantedictum.net',1,'livre de poche'),
-('Garrett Rasmussen','09 92 87 36 85','Quisque.fringilla.euismod@mi.com',0,'A démenagé'),
+('Garrett Rasmussen','09 92 87 36 85','Quisque.fringilla.euismod@mi.com',0,'A dï¿½menagï¿½'),
 ('Chaim Hewitt','05 42 04 85 34','Nunc@et.net',1,' '),
 ('Robert Peterson','08 87 12 08 79','vel.lectus.Cum@lectusCumsociis.com',1,' ')
 
@@ -43,21 +43,21 @@ values
 insert into Auteur
 (autNom,autPrenom,autDateNaissance,autGenre,autBio)
 values
-('Ronan','Michel','25-07-1814',1,'Michel Roman, né à Marseille le 25 juillet 1814 et mort à Paris le 25 mars 1875, est un romancier et auteur dramatique français.'),
+('Ronan','Michel','25-07-1814',1,'Michel Roman, nï¿½ ï¿½ Marseille le 25 juillet 1814 et mort ï¿½ Paris le 25 mars 1875, est un romancier et auteur dramatique franï¿½ais.'),
 ('Brock','Denise Stuart','14-04-1930',2,''),
 ('Ross','Aubrey','26-03-1950',2,''),
-('Abra','Bernard','27-06-1838',1,'Bernard Abra, né le 27 juin 1838 à Marylebone et mort le 12 octobre 1926 (à 87 ans), professeur et théologien anglais'),
+('Abra','Bernard','27-06-1838',1,'Bernard Abra, nï¿½ le 27 juin 1838 ï¿½ Marylebone et mort le 12 octobre 1926 (ï¿½ 87 ans), professeur et thï¿½ologien anglais'),
 ('Murphy','Lara','24-05-1920',2,' '),
-('Knapp','Nicholas','24-07-1815',1,'Knapp Nicholas, né le 24 juillet 1815 à Dublin  et mort le 8 novembre 1893 à Ciboure, est un géographe français connu pour ses voyages en Éthiopie')
+('Knapp','Nicholas','24-07-1815',1,'Knapp Nicholas, nï¿½ le 24 juillet 1815 ï¿½ Dublin  et mort le 8 novembre 1893 ï¿½ Ciboure, est un gï¿½ographe franï¿½ais connu pour ses voyages en ï¿½thiopie')
 
 
 --insertion dans la table transporteur
 insert into Transporteur
 (traNomLivreur,traTelF,traEmail,traStatut,traChampLibre)
 values
-('Chronopost','0717273837','chronopost@molestiesodales.edu',1,'Très serieux'),
+('Chronopost','0717273837','chronopost@molestiesodales.edu',1,'Trï¿½s serieux'),
 ('TNT','0163442370','tnt@vel.ca',1,''),
-('DHL','0253016076','dhl@magnaSedeu.org',0,'basé en France'),
+('DHL','0253016076','dhl@magnaSedeu.org',0,'basï¿½ en France'),
 ('Colissimo','0593570516','colissimo@luctus.com',0,'en rupture de contrat'),
 ('FEDEX','0306939190','fedex@ornarelectusjusto.net',1,' ')
 
@@ -67,9 +67,9 @@ insert into Promotion
 (proNom,proDateDebut,proDateFin,proDescription,proReduction,proImage,proStatut,proChampLibre)
 values
 ('Speciale salon du livre','2017-04-24T15:00:00','2017-04-29T17:00:00','Presentation des ecrivains feminins',0,'ciel',0,''),
-('Les ecrivains voyageurs','2017-05-02T15:00:00','2017-05-02T17:00:00','Jeune découverte',0,'voiture',0,'Qui est Mathieu Grimaud, le narrateur de cette étrange histoire qui, quinze ans après l’incendie de sa chambre, reste persuadé que sa mère a voulu se débarrasser de lui ?'),
-('Coup de coeur','2017-06-06T09:00:00','2017-06-10T15:00:00','Gymnopédie pour une disparue',9.99,'livre',1,'Boris Sieger est un employé de mairie attaché à sa vie ordinaire'),
-('Coup de coeur','2017-06-06T09:00:00','2017-06-10T15:00:00','Le chagrin des vivants',9.99,'livre',1,'Durant les cinq premiers jours de novembre 1920, Angleterre attend arrivée du Soldat inconnu, rapatrié depuis la France'),
+('Les ecrivains voyageurs','2017-05-02T15:00:00','2017-05-02T17:00:00','Jeune dï¿½couverte',0,'voiture',0,'Qui est Mathieu Grimaud, le narrateur de cette ï¿½trange histoire qui, quinze ans aprï¿½s lï¿½incendie de sa chambre, reste persuadï¿½ que sa mï¿½re a voulu se dï¿½barrasser de lui ?'),
+('Coup de coeur','2017-06-06T09:00:00','2017-06-10T15:00:00','Gymnopï¿½die pour une disparue',9.99,'livre',1,'Boris Sieger est un employï¿½ de mairie attachï¿½ ï¿½ sa vie ordinaire'),
+('Coup de coeur','2017-06-06T09:00:00','2017-06-10T15:00:00','Le chagrin des vivants',9.99,'livre',1,'Durant les cinq premiers jours de novembre 1920, Angleterre attend arrivï¿½e du Soldat inconnu, rapatriï¿½ depuis la France'),
 ('Le livre africain','2017-07-06T09:00:00','2017-08-06T15:00:00','visite guidee',0,'lion',0,'')
 
 
@@ -95,6 +95,7 @@ values
 (5,'Tiger','Maynard','velit.Sed@Mauris.co.uk','0420509215',0)
 
 --insertion dans la table adresse
+use librairie
 insert into Adresse
 (desId,cliId,cli_cliId,adrNumVoie,adrNomVoie,adrNomVoieSuite,adrCp,adrVille,adrPays,adrStatut)
 values
@@ -118,10 +119,10 @@ values
 insert into Ouvrage
 (ouvNom)
 values
-('Orgueil et préjugés'),
+('Orgueil et prï¿½jugï¿½s'),
 ('Voyage au bout de la nuit'),
-('La Divine Comédie'),
-('Crime et Châtiment'),
+('La Divine Comï¿½die'),
+('Crime et Chï¿½timent'),
 ('Madame Bovary')
 
 --insertion dans la table motcle

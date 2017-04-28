@@ -27,14 +27,14 @@ public final class Connexion {
 
         try {
             
-            connexion = DriverManager.getConnection(
-                    "jdbc:sqlserver://localhost:1433;"
-                    + "databaseName=libElec;user=sa;password=sa");
-
-//            
-//             connexion = DriverManager.getConnection(
+//            connexion = DriverManager.getConnection(
 //                    "jdbc:sqlserver://localhost:1433;"
-//                    + "databaseName=librairie;user=sa;password=saObito95000_");
+//                    + "databaseName=libElec;user=sa;password=sa");
+//
+//            
+             connexion = DriverManager.getConnection(
+                    "jdbc:sqlserver://localhost:1433;"
+                    + "databaseName=librairie;user=sa;password=saObito95000_");
              
              
         } catch (SQLException ex) {

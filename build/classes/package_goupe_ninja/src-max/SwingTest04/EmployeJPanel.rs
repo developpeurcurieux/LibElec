@@ -1,4 +1,0 @@
-SwingTest04.EmployeJPanel$1
-SwingTest04.EmployeJPanel$2
-SwingTest04.EmployeJPanel$3
-SwingTest04.EmployeJPanel

@@ -4,7 +4,11 @@
  * and open the template in the editor.
  */
 package controller;
-import package_goupe_SwingTest04.*;
+import package_goupe_maxime.PromotionJPanel;
+import package_goupe_maxime.TvaJPanel;
+import package_goupe_maxime.EditeurJPanel;
+import package_goupe_maxime.InfoLibrairieJPanel;
+import package_goupe_maxime.EmployeJPanel;
 import javax.swing.JFrame;
 import view.RootFrame;
 

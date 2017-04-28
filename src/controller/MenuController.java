@@ -12,6 +12,8 @@ import view.*;
  */
 
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import package_groupe_ghislain.*;
 
 public class MenuController implements Controller{
     String nomPanel = "Menu Principal";
@@ -60,6 +62,7 @@ public class MenuController implements Controller{
      SwingTestController employeController = new SwingTestController(rootFrame, "Employe");   
     }
     
+    
     public void consulterInfoLibrairie() {
      SwingTestController infoLibrairieController = new SwingTestController(rootFrame, "Infos Librairie");   
     }
@@ -68,8 +71,25 @@ public class MenuController implements Controller{
      SwingTestController PromotionController = new SwingTestController(rootFrame, "Promotion");   
     }
     
+    
     public void consulterTva() {
     SwingTestController tvaController = new SwingTestController(rootFrame, "Tva");   
+    }
+    
+    
+//ghislain
+    
+    public void consulterTransporteur() {
+        rootFrame.setVisible(false);
+        rootFrame.setEnabled(false);
+        
+       Jf_Transporteur jf = new Jf_Transporteur();
+       jf.setVisible(true);
+    }
+    
+    
+    public void consulterFraisPort() {
+        consulterTransporteur();
     }
     
     

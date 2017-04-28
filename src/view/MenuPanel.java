@@ -157,9 +157,13 @@ public class MenuPanel extends JPanel{
         btnClient.addActionListener(e -> consulterClient());
         
         btnQuit0.setText("Frais de port");
+        btnQuit0.addActionListener(e -> menuController.consulterFraisPort());
         Left.add(btnQuit0);
-
+        
+        
+        
         btnQuit1.setText("Transporteur");
+        btnQuit1.addActionListener(e -> menuController.consulterTransporteur());
         Left.add(btnQuit1);
 
         btnQuit2.setText("Adresse");
